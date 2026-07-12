@@ -1,0 +1,31 @@
+Opportunity_ID,Country,Crop,Stage,Value_USD,Owner,Target_Date,Status
+OPP-1001,Kenya,TELA Maize,Deployed,420000,J. Placeholder,2026-03-15,Closed-Won
+OPP-1002,Nigeria,PBR Cowpea,Proposal,285000,A. Sample,2026-08-30,On Track
+OPP-1003,Tanzania,TELA Maize,Qualified,150000,M. Example,2026-09-20,On Track
+OPP-1004,Uganda,Cassava,Lead,60000,B. Placeholder,2026-10-10,New
+OPP-1005,Ghana,PBR Cowpea,Approved,340000,A. Sample,2026-07-31,On Track
+OPP-1006,Kenya,Striga Control,Deployed,95000,J. Placeholder,2026-02-28,Closed-Won
+OPP-1007,Mozambique,TELA Maize,Proposal,210000,M. Example,2026-08-15,At Risk
+OPP-1008,Nigeria,Cassava,Qualified,180000,B. Placeholder,2026-09-30,On Track
+OPP-1009,Malawi,TELA Maize,Lead,45000,D. Sample,2026-11-05,New
+OPP-1010,Ethiopia,Striga Control,Proposal,260000,M. Example,2026-08-25,On Track
+OPP-1011,Kenya,PBR Cowpea,Approved,175000,A. Sample,2026-07-20,On Track
+OPP-1012,Tanzania,Cassava,Deployed,310000,B. Placeholder,2026-01-30,Closed-Won
+OPP-1013,Ghana,TELA Maize,Qualified,120000,D. Sample,2026-10-15,On Track
+OPP-1014,Zambia,Striga Control,Lead,55000,J. Placeholder,2026-11-20,New
+OPP-1015,Nigeria,TELA Maize,Proposal,395000,M. Example,2026-09-10,At Risk
+OPP-1016,Uganda,PBR Cowpea,Approved,230000,A. Sample,2026-07-15,On Track
+OPP-1017,Kenya,Cassava,Qualified,140000,B. Placeholder,2026-09-25,On Track
+OPP-1018,Mozambique,TELA Maize,Lead,70000,D. Sample,2026-12-01,New
+OPP-1019,Ethiopia,TELA Maize,Deployed,480000,J. Placeholder,2026-03-05,Closed-Won
+OPP-1020,Malawi,PBR Cowpea,Proposal,165000,A. Sample,2026-08-20,On Track
+OPP-1021,Tanzania,Striga Control,Qualified,110000,M. Example,2026-10-05,At Risk
+OPP-1022,Ghana,Cassava,Lead,50000,B. Placeholder,2026-11-30,New
+OPP-1023,Nigeria,PBR Cowpea,Deployed,355000,A. Sample,2026-02-10,Closed-Won
+OPP-1024,Kenya,TELA Maize,Approved,290000,J. Placeholder,2026-07-25,On Track
+OPP-1025,Zambia,Cassava,Qualified,130000,D. Sample,2026-09-18,On Track
+OPP-1026,Uganda,Striga Control,Proposal,205000,M. Example,2026-08-28,On Track
+OPP-1027,Ethiopia,PBR Cowpea,Lead,65000,B. Placeholder,2026-11-12,New
+OPP-1028,Mozambique,Cassava,Approved,245000,D. Sample,2026-07-10,At Risk
+OPP-1029,Malawi,TELA Maize,Deployed,375000,J. Placeholder,2026-01-22,Closed-Won
+OPP-1030,Tanzania,PBR Cowpea,Proposal,220000,A. Sample,2026-09-05,On Track

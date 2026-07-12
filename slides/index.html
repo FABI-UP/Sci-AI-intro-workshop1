@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AATF AI Workshop — Slides</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<link rel="stylesheet" href="../assets/deck.css">
+</head>
+<body class="deck-body">
+
+<div class="progress"></div>
+<div class="slide-num"></div>
+<div class="help-hint no-print">← → to move · <span class="kbd">F</span> full screen · <span class="kbd">T</span> theme</div>
+
+<!-- ══════════════ CHAPTER 0 — OPEN (09:00) ══════════════ -->
+
+<!-- 1 · Title -->
+<section class="slide title active">
+  <div class="slide-kicker" style="color:var(--gold-bright)">AATF · University of Pretoria (FABI) · Nairobi · 15 July 2026</div>
+  <h1>Working with Modern AI</h1>
+  <p class="subtitle">A hands-on day for AATF scientists and teams.<br>Agentic, multi-modal AI — what it is, what it can do, and how to use it well.</p>
+  <p style="margin-top:2rem;opacity:.75;font-size:1rem">Prof. Bernard Slippers &nbsp;·&nbsp; Arné Schreuder</p>
+</section>
+
+<!-- 2 · Cold open: the carwash -->
+<section class="slide">
+  <div class="slide-kicker">Before we begin</div>
+  <h2>A true story about a very smart assistant</h2>
+  <div class="split">
+    <div class="stack">
+      <p>Someone asked an AI: <em>"Should I walk to the carwash 300 m away, or drive?"</em></p>
+      <p class="frag">The AI thoughtfully weighed the weather, the exercise, what you might carry back… and recommended <strong>walking</strong>.</p>
+      <p class="frag">"But… I need to get my <strong>car</strong> washed?"</p>
+      <p class="frag">"Ahhh. Okay — you obviously need to <em>drive</em> it there."</p>
+    </div>
+    <div class="callout callout-tip frag">
+      <div class="callout-title">The lesson for today</div>
+      <p>AI is astonishingly capable <strong>and</strong> can miss the obvious. It's a brilliant assistant — not an oracle. Our job today is to learn where it shines, where it slips, and how to steer it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · The promise -->
+<section class="slide">
+  <div class="slide-kicker">The promise</div>
+  <h2>By the tea break, you will have used AI on your <em>own</em> work.</h2>
+  <p class="lead">Not watched a demo. <strong>Done it yourself</strong> — on a real task from your desk.</p>
+  <div class="grid grid-3" style="margin-top:2rem">
+    <div class="card frag"><div class="kicker">Morning</div><p>Understand it, then use it — chat, context, and your first real result.</p></div>
+    <div class="card frag"><div class="kicker">Midday</div><p>Climb the ladder: from chat to agents that do multi-step work for you.</p></div>
+    <div class="card frag"><div class="kicker">Close</div><p>Use it <em>responsibly</em>, and each team leaves with one pilot to run.</p></div>
+  </div>
+</section>
+
+<!-- 4 · Today's arc -->
+<section class="slide">
+  <div class="slide-kicker">Today's arc</div>
+  <h2>Five moves, building on each other</h2>
+  <ol class="steps" style="max-width:820px">
+    <li><strong>Why &amp; what</strong> — what AI actually is, in plain language <span class="chip chip-plain">09:15</span></li>
+    <li><strong>Is it real?</strong> — what scientists have already done with it</li>
+    <li><strong>Where it helps</strong> — across every AATF function <span class="chip chip-plain">10:00</span></li>
+    <li><strong>How to use it</strong> — chat → Cowork → agents, hands-on <span class="chip chip-plain">11:00</span></li>
+    <li><strong>Guardrails &amp; your move</strong> — responsible use, and one pilot each <span class="chip chip-plain">12:00</span></li>
+  </ol>
+</section>
+
+<!-- 5 · Ground rules -->
+<section class="slide">
+  <div class="slide-kicker">Ground rules</div>
+  <h2>How to get the most from today</h2>
+  <div class="grid grid-3" style="margin-top:1.5rem">
+    <div class="card"><div class="num">1</div><h3>It's fine to be a beginner</h3><p>Everyone here starts somewhere. No question is too basic.</p></div>
+    <div class="card"><div class="num">2</div><h3>Bring a real task</h3><p>The best learning happens on <em>your</em> actual work, not toy examples.</p></div>
+    <div class="card"><div class="num">3</div><h3>A capable assistant, not an oracle</h3><p>AI amplifies your judgement. It never replaces it.</p></div>
+  </div>
+  <div class="callout" style="margin-top:2rem"><p><strong>On the flipchart:</strong> what is one task you did this week that you wish you hadn't had to do by hand? We'll use your answers as we go.</p></div>
+</section>
+
+<!-- ══════════════ CHAPTER 1 — UNDERSTANDING AI (09:15) ══════════════ -->
+
+<!-- 6 · Section -->
+<section class="slide section">
+  <div class="slide-kicker">Part 1 · 09:15</div>
+  <h1>What is this thing?</h1>
+  <p class="lead">A working mental model — not an accurate one. Enough to use it well.</p>
+</section>
+
+<!-- 7 · The one idea -->
+<section class="slide">
+  <div class="slide-kicker">The one idea</div>
+  <h2>It <em>predicts language</em>. It is not a database.</h2>
+  <div class="split">
+    <div class="stack">
+      <p class="lead">An AI language model does one thing, extremely well:</p>
+      <p style="font-size:1.6rem;font-weight:700;color:var(--brand)">it predicts what words should come next.</p>
+      <p class="frag">It is not looking anything up in a table of facts. It is generating the most plausible continuation, one piece at a time.</p>
+    </div>
+    <div class="callout callout-warn frag">
+      <div class="callout-title">Why this matters</div>
+      <p>Because it predicts rather than retrieves, it can be fluent and <strong>confidently wrong</strong>. Everything else today follows from this one idea.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · What is an LLM -->
+<section class="slide">
+  <div class="slide-kicker">What is an LLM?</div>
+  <h2>"Fill in the blank," at enormous scale</h2>
+  <p>A Large Language Model (LLM) learned by playing fill-in-the-blank over a huge amount of text:</p>
+  <div class="prompt" style="margin-top:1rem">USER: What is the capital of France?
+ASSISTANT: The capital of France is <span class="ph">_______</span></div>
+  <p class="frag" style="margin-top:1rem">Do that billions of times, and it gets astonishingly good at continuing text sensibly — answering questions, drafting, translating, summarising. <strong>A chat is just this: the model predicting the assistant's next words.</strong></p>
+</section>
+
+<!-- 9 · How it learned / the layer you control -->
+<section class="slide">
+  <div class="slide-kicker">How it was built</div>
+  <h2>Most of the cost is behind you. The part <em>you</em> touch is cheap.</h2>
+  <div class="ladder" style="max-width:760px;margin-top:1rem">
+    <div class="rung"><div class="rnum">$$$$</div><div><strong>Pre-training</strong> — read most of the internet. Done once, by the vendor.</div></div>
+    <div class="rung"><div class="rnum">$$$</div><div><strong>Fine-tuning</strong> — learn to follow instructions and be helpful.</div></div>
+    <div class="rung"><div class="rnum">$$</div><div><strong>Alignment</strong> — learn to be safe and honest.</div></div>
+    <div class="rung"><div class="rnum">$</div><div><strong>Your prompt</strong> — the instructions you give it. This is the layer you control.</div></div>
+  </div>
+  <p class="frag" style="margin-top:1.2rem">You don't need to build a model. You need to get good at the last, cheap layer: <strong>talking to it well</strong>.</p>
+</section>
+
+<!-- 10 · Multi-modal -->
+<section class="slide">
+  <div class="slide-kicker">Modern AI · July 2026</div>
+  <h2>Not just text — <em>multi-modal</em></h2>
+  <div class="grid grid-4" style="margin-top:1rem">
+    <div class="card"><h3>📝 Text</h3><p>Read, write, summarise, translate, reason.</p></div>
+    <div class="card"><h3>🖼️ Images</h3><p>Read a chart, a scanned form, a photo of a diseased leaf.</p></div>
+    <div class="card"><h3>📊 Data &amp; files</h3><p>Spreadsheets, PDFs, whole folders of documents.</p></div>
+    <div class="card"><h3>🎙️ Voice</h3><p>Talk to it; transcribe and act on recordings.</p></div>
+  </div>
+  <div class="callout callout-tip frag" style="margin-top:1.5rem"><p>When we say "modern AI" today, we mean <strong>agentic, multi-modal AI of 2026</strong> — models that see, read, and act, not just chat.</p></div>
+</section>
+
+<!-- 11 · What is context -->
+<section class="slide">
+  <div class="slide-kicker">The most important word today</div>
+  <h2>Context = everything the AI can "see" right now</h2>
+  <div class="split">
+    <div class="stack">
+      <p>Think of it as the model's <strong>working desk</strong>. Whatever is on the desk — your question, the files you gave it, the conversation so far — is what it reasons over.</p>
+      <p class="frag">Nothing else exists to it. If it's not on the desk, it doesn't know it.</p>
+      <p class="frag">The desk is large but not infinite. On a big task, older items get cleared to make room.</p>
+    </div>
+    <div class="callout callout-info frag">
+      <div class="callout-title">The practical rule</div>
+      <p>Better answers come from a better desk. <strong>Put the right things in front of it</strong> — the document, the data, the example — and be specific about what you want.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · Context engineering / four-part prompt -->
+<section class="slide">
+  <div class="slide-kicker">Context engineering</div>
+  <h2>Garbage in, garbage out — so put good things in</h2>
+  <div class="split">
+    <div>
+      <p class="muted" style="font-weight:600">Weak</p>
+      <div class="prompt" style="border-left-color:var(--up-red)">Write something about maize.</div>
+      <p class="frag muted" style="font-weight:600;margin-top:1.5rem">Strong — Role · Task · Context · Format</p>
+      <div class="prompt frag">You are a proposal writer for AATF.
+Draft a 1-page concept note on <span class="ph">[TELA maize scale-up]</span>
+for <span class="ph">[Donor X]</span>, who funds <span class="ph">[climate resilience]</span>.
+Structure: Problem, Solution, Impact, Why AATF, Budget.
+Under 500 words. Here is our background: <span class="ph">[PASTE]</span></div>
+    </div>
+    <div class="callout callout-tip frag">
+      <div class="callout-title">Four parts, every time</div>
+      <p><strong>Role</strong> — who it should be.<br><strong>Task</strong> — what to do.<br><strong>Context</strong> — what it needs to know.<br><strong>Format</strong> — what the output should look like.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · Strengths / limits -->
+<section class="slide">
+  <div class="slide-kicker">Strengths &amp; limits</div>
+  <h2>Brilliant at some things, weak at others</h2>
+  <div class="split">
+    <div class="card"><h3 style="color:var(--tl-green)">Great at</h3>
+      <ul><li>Drafting, rewriting, summarising</li><li>Translating &amp; changing tone</li><li>Explaining and structuring messy notes</li><li>First-pass analysis and comparison</li><li>Doing the same task across many files</li></ul>
+    </div>
+    <div class="card"><h3 style="color:var(--tl-red)">Weak / risky at</h3>
+      <ul><li>Facts, numbers, and exact citations</li><li>Very recent events (unless it searches)</li><li>Knowing what it <em>doesn't</em> know</li><li>Your local, unwritten context</li><li>Anything you can't check</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- 14 · Jagged intelligence -->
+<section class="slide">
+  <div class="slide-kicker">A concept worth knowing</div>
+  <h2>"Jagged" intelligence</h2>
+  <p class="lead">It can draft a funding proposal in seconds — then miscount the words. It can explain genomics — then invent a citation.</p>
+  <div class="callout callout-warn frag" style="margin-top:1.5rem">
+    <div class="callout-title">Hallucination</div>
+    <p>Because it <em>predicts plausible text</em>, it will sometimes produce a confident, well-formatted answer that is simply <strong>wrong</strong> — a fake reference, a made-up number. This isn't a bug you can switch off. It's how the tool works.</p>
+  </div>
+  <p class="frag" style="margin-top:1rem">→ That's why <strong>verification</strong> is a theme we return to all day. (Remember the carwash.)</p>
+</section>
+
+<!-- 15 · Capable assistant not oracle -->
+<section class="slide quote">
+  <blockquote>A capable assistant, not an oracle.</blockquote>
+  <cite>It amplifies your judgement. It does not replace it.</cite>
+</section>
+
+<!-- ══════════════ CHAPTER 2 — IS IT REAL? ══════════════ -->
+
+<!-- 16 · Section -->
+<section class="slide section">
+  <div class="slide-kicker">Part 2</div>
+  <h1>Is any of this actually useful?</h1>
+  <p class="lead">What scientists — including in agriculture and Africa — have already done.</p>
+</section>
+
+<!-- 17 · Two Nobels -->
+<section class="slide">
+  <div class="slide-kicker">2024</div>
+  <h2>AI was at the centre of <em>two</em> Nobel Prizes in one year</h2>
+  <div class="split" style="margin-top:1rem">
+    <div class="card"><div class="kicker">Chemistry 2024</div><h3>Protein structure &amp; design</h3><p>Demis Hassabis &amp; John Jumper (AlphaFold), and David Baker. AI cracked a 50-year grand-challenge in biology.</p></div>
+    <div class="card"><div class="kicker">Physics 2024</div><h3>The foundations of machine learning</h3><p>John Hopfield &amp; Geoffrey Hinton, for the neural-network ideas that made all of this possible.</p></div>
+  </div>
+  <p class="frag muted" style="margin-top:1.5rem">This is not a fringe technology. The scientific establishment has recognised it at the highest level.</p>
+</section>
+
+<!-- 18 · AlphaFold -->
+<section class="slide">
+  <div class="slide-kicker">AlphaFold · why it mattered</div>
+  <h2>From years in the lab to minutes on a screen</h2>
+  <div class="stat-row" style="margin-top:1.5rem">
+    <div class="stat"><div class="big">~200M</div><div class="lbl">protein structures predicted<br>— nearly every known protein</div></div>
+    <div class="stat"><div class="big">2M+</div><div class="lbl">researchers in ~190 countries<br>now use it</div></div>
+    <div class="stat"><div class="big">minutes</div><div class="lbl">not months or years<br>per structure</div></div>
+  </div>
+  <p class="frag" style="margin-top:1.5rem">A problem that defined careers is now a free lookup. That is the scale of change we're talking about.</p>
+</section>
+
+<!-- 19 · AI co-scientist -->
+<section class="slide">
+  <div class="slide-kicker">2025 · the "AI co-scientist"</div>
+  <h2>A decade of work, reproduced in two days</h2>
+  <p>Google's multi-agent "AI co-scientist" was given a hard open question about how superbugs acquire antibiotic resistance.</p>
+  <div class="callout callout-tip frag" style="margin-top:1rem">
+    <p>In <strong>~2 days</strong>, it independently proposed the same key hypothesis a research team had spent <strong>~10 years</strong> reaching — a result they had not yet published. The lead confirmed the AI had no access to their unpublished work.</p>
+  </div>
+  <p class="frag muted" style="margin-top:1rem">AI is starting to help <em>generate</em> hypotheses, not just process data — the front end of science.</p>
+</section>
+
+<!-- 20 · Maths -->
+<section class="slide">
+  <div class="slide-kicker">2025 · mathematics</div>
+  <h2>Gold-medal reasoning</h2>
+  <div class="split">
+    <div class="stack">
+      <p>At the 2025 International Mathematical Olympiad, an advanced AI model solved <strong>5 of 6 problems</strong> — a <strong>gold-medal</strong> standard, graded under the same rules as the students.</p>
+      <p class="frag muted">For comparison: only 67 of 630 human contestants earned gold that year.</p>
+    </div>
+    <div class="callout callout-info frag">
+      <div class="callout-title">Why care?</div>
+      <p>These aren't lookup tasks. They need multi-step reasoning — the same muscle behind analysing a trial, structuring an argument, or checking a budget.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 21 · Agriculture / Africa -->
+<section class="slide">
+  <div class="slide-kicker">Closest to home · agriculture in Africa</div>
+  <h2>A crop doctor in every pocket</h2>
+  <div class="split">
+    <div class="stack">
+      <p><strong>PlantVillage Nuru</strong> ("nuru" = light in Swahili) diagnoses crop disease from a phone photo — cassava mosaic and brown-streak disease, fall armyworm on maize.</p>
+      <ul>
+        <li class="frag">Runs <strong>fully offline</strong> — built for low-connectivity rural areas.</li>
+        <li class="frag">In field tests, roughly <strong>twice as accurate</strong> as the human extension officers it was compared against.</li>
+      </ul>
+    </div>
+    <div class="callout callout-tip frag">
+      <div class="callout-title">The point</div>
+      <p>This is not Silicon Valley solving Silicon Valley's problems. It's smallholder farmers, African crops, real constraints.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 22 · The honest counterweight -->
+<section class="slide">
+  <div class="slide-kicker">Keeping honest</div>
+  <h2>…and a cautionary tale about hype</h2>
+  <p>In late 2025, a company claimed its AI had "solved 10 open problems" in mathematics.</p>
+  <div class="callout callout-danger frag" style="margin-top:1rem">
+    <p>It hadn't. It had done a <strong>literature search</strong> and surfaced solutions that already existed — "open" only in one outdated list. A senior figure called the overclaim "embarrassing."</p>
+  </div>
+  <p class="frag" style="margin-top:1rem"><strong>Both things are true:</strong> AI is doing genuinely remarkable science <em>and</em> the field is full of overclaiming. Your scientific scepticism is exactly the right instinct to bring.</p>
+</section>
+
+<!-- 23 · What this means for AATF -->
+<section class="slide">
+  <div class="slide-kicker">So — for AATF</div>
+  <h2>The constraint on an R&amp;D foundation is rarely ideas. It's <em>skilled time.</em></h2>
+  <p class="lead">AI reclaims hours from routine cognitive work — drafting, summarising, reformatting, first-pass analysis — and hands them back for judgement, relationships, and science.</p>
+  <p class="frag" style="margin-top:1.5rem;font-weight:700;color:var(--brand)">More output, higher quality, from the same team.</p>
+</section>
+
+<!-- ══════════════ CHAPTER 3 — WHERE IT HELPS (10:00) ══════════════ -->
+
+<!-- 24 · Section -->
+<section class="slide section">
+  <div class="slide-kicker">Part 3 · 10:00</div>
+  <h1>Where it helps at AATF</h1>
+  <p class="lead">Every function has routine cognitive work. That's where AI earns its place.</p>
+</section>
+
+<!-- 25 · Use-case map -->
+<section class="slide">
+  <div class="slide-kicker">The map</div>
+  <h2>Six functions, one pattern</h2>
+  <div class="grid grid-3" style="margin-top:1rem">
+    <div class="card"><div class="kicker">Resource Mobilization</div><p>Concept notes, donor intelligence, budget narratives, pipeline summaries.</p></div>
+    <div class="card"><div class="kicker">Comms &amp; Advocacy</div><p>Press releases, one message → many audiences, policy briefs, EN⇄FR.</p></div>
+    <div class="card"><div class="kicker">Research &amp; Product Dev</div><p>Paper summaries, comparing trial reports, explaining the science.</p></div>
+    <div class="card"><div class="kicker">Regulatory &amp; Deployment</div><p>Biosafety comparisons, submission checklists, draft term sheets.</p></div>
+    <div class="card"><div class="kicker">M&amp;E &amp; Operations</div><p>Minutes &amp; actions, report sections, first-pass data analysis.</p></div>
+    <div class="card"><div class="kicker">Everyone</div><p>Act-on-this-document summaries, email drafts, getting unstuck.</p></div>
+  </div>
+  <p class="frag muted center" style="margin-top:1.2rem">The full, copy-ready set lives in your <strong>Prompt Library</strong>.</p>
+</section>
+
+<!-- 26 · Same request three ways -->
+<section class="slide">
+  <div class="slide-kicker">Live demo</div>
+  <h2>The same request, three ways</h2>
+  <ol class="steps" style="max-width:820px">
+    <li><strong>Lazy:</strong> "Write something about maize." → generic, useless.</li>
+    <li class="frag"><strong>With context:</strong> add the role, the donor, the structure. → usable draft.</li>
+    <li class="frag"><strong>+ a real document:</strong> paste the actual background material. → a draft that sounds like AATF.</li>
+  </ol>
+  <div class="callout callout-tip frag" style="margin-top:1rem"><p>Same tool, three wildly different results. <strong>The difference is what you put on the desk.</strong></p></div>
+</section>
+
+<!-- 27 · Guided try 1 -->
+<section class="slide section">
+  <div class="slide-kicker">✋ Guided Try #1 · everyone</div>
+  <h1>Your turn</h1>
+  <p class="lead">Open Claude. Take a real document from your desk. Ask it:</p>
+  <div class="prompt" style="max-width:820px;margin-top:1rem;color:#fff;background:rgba(255,255,255,.1);border-left-color:var(--gold-bright)">Summarise the document below into 5 bullet points for a busy director,
+then list any decisions it needs from me.
+
+<span style="color:var(--gold-bright)">[PASTE YOUR DOCUMENT]</span></div>
+  <p class="frag" style="margin-top:1rem;opacity:.9">Goal: everyone gets to "it worked!" No device? Pair up with a neighbour.</p>
+</section>
+
+<!-- ══════════════ CHAPTER 4 — CHAT → COWORK → AGENTS (11:00) ══════════════ -->
+
+<!-- 28 · Section -->
+<section class="slide section">
+  <div class="slide-kicker">Part 4 · 11:00</div>
+  <h1>From chatbot to agent</h1>
+  <p class="lead">The leap that makes 2026 different: AI that doesn't just answer — it <em>acts</em>.</p>
+</section>
+
+<!-- 29 · What's missing -->
+<section class="slide">
+  <div class="slide-kicker">The missing pieces</div>
+  <h2>A bare model can think and talk. To be truly useful, it needs more.</h2>
+  <div class="grid grid-2" style="margin-top:1rem">
+    <div class="card"><h3>🧠 Memory</h3><p>To remember beyond one conversation — your project, your preferences, past work.</p></div>
+    <div class="card"><h3>🛠️ Tools</h3><p>To act on the world — search the web, read a file, run a calculation, send a draft.</p></div>
+  </div>
+  <p class="frag" style="margin-top:1.5rem">Give a language model <strong>memory and tools, and the ability to plan</strong> — and you get an <em>agent</em>.</p>
+</section>
+
+<!-- 30 · What is an agent -->
+<section class="slide">
+  <div class="slide-kicker">What is an AI agent?</div>
+  <h2>Model + tools + planning + memory</h2>
+  <div class="grid grid-4" style="margin-top:1rem">
+    <div class="card"><div class="num">🧩</div><h3>The model</h3><p>The reasoning core — decides what to do.</p></div>
+    <div class="card"><div class="num">🛠️</div><h3>Tools</h3><p>Web search, files, code, calculators, connectors.</p></div>
+    <div class="card"><div class="num">🗺️</div><h3>Planning</h3><p>Break a goal into steps; check its own work.</p></div>
+    <div class="card"><div class="num">🧠</div><h3>Memory</h3><p>Hold context across a long task and beyond.</p></div>
+  </div>
+  <div class="callout callout-tip frag" style="margin-top:1.5rem"><p>A <strong>chatbot</strong> answers your question. An <strong>agent</strong> takes your goal, makes a plan, uses tools, and works through the steps — checking in with you.</p></div>
+</section>
+
+<!-- 31 · Tool use -->
+<section class="slide">
+  <div class="slide-kicker">"Tool use"</div>
+  <h2>The model doesn't know everything — so it reaches for instruments</h2>
+  <div class="split">
+    <div class="stack">
+      <p>When a model needs a fact, a calculation, or a file, it can <strong>call a tool</strong> instead of guessing:</p>
+      <ul>
+        <li>Needs today's news → <strong>web search</strong></li>
+        <li>Needs an exact sum → <strong>a calculator / code</strong></li>
+        <li>Needs your report → <strong>read the file</strong></li>
+      </ul>
+    </div>
+    <div class="callout callout-info frag">
+      <div class="callout-title">Scientist's analogy</div>
+      <p>You don't calculate a titration in your head — you use the instrument. Tool use lets the model do the same: offload what it shouldn't guess.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 32 · scientific method as agent loop -->
+<section class="slide">
+  <div class="slide-kicker">You already know this loop</div>
+  <h2>An agent works like the scientific method</h2>
+  <div class="grid grid-4" style="margin-top:1.5rem">
+    <div class="card"><div class="kicker">Plan</div><p>Form a hypothesis / decide the next step.</p></div>
+    <div class="card"><div class="kicker">Act</div><p>Run the experiment / use a tool.</p></div>
+    <div class="card"><div class="kicker">Observe</div><p>Read the result.</p></div>
+    <div class="card"><div class="kicker">Revise</div><p>Adjust and go again — until done.</p></div>
+  </div>
+  <p class="frag center" style="margin-top:1.5rem;font-weight:700;color:var(--brand)">Plan → Act → Observe → Revise. The agent runs this loop for you, many times, quickly.</p>
+</section>
+
+<!-- 33 · where agents run -->
+<section class="slide">
+  <div class="slide-kicker">Where do agents run?</div>
+  <h2>Three surfaces, same engine</h2>
+  <div class="grid grid-3" style="margin-top:1rem">
+    <div class="card card-hover"><div class="kicker">Claude Chat</div><h3>Converse</h3><p>The chat window. Ask, attach files, search, run deep research, use Projects &amp; connectors.</p><p class="muted">Best for: everyday questions, drafting, quick analysis.</p></div>
+    <div class="card card-hover"><div class="kicker">Claude Cowork</div><h3>Delegate</h3><p>Point it at a folder or task; it works across files and produces deliverables while you steer.</p><p class="muted">Best for: multi-step productivity, research, analysis.</p></div>
+    <div class="card card-hover"><div class="kicker">Claude Code</div><h3>Automate</h3><p>An agent in your computer's terminal — reads &amp; writes files, runs commands, builds pipelines.</p><p class="muted">Best for: data, automation, technical workflows.</p></div>
+  </div>
+</section>
+
+<!-- 34 · escalation ladder -->
+<section class="slide">
+  <div class="slide-kicker">The escalation ladder</div>
+  <h2>Climb only as high as the task needs</h2>
+  <div class="ladder" style="max-width:820px;margin-top:1rem">
+    <div class="rung"><div class="rnum">1</div><div><strong>Chat</strong> — one-off questions &amp; drafts. <span class="muted">"Summarise this report."</span></div></div>
+    <div class="rung"><div class="rnum">2</div><div><strong>Projects</strong> — reusable context. <span class="muted">A "Donor Proposal Assistant" that knows AATF.</span></div></div>
+    <div class="rung"><div class="rnum">3</div><div><strong>Cowork</strong> — multi-step work across files. <span class="muted">Report → summary → chart → brief.</span></div></div>
+    <div class="rung"><div class="rnum">4</div><div><strong>Agents</strong> — recurring, autonomous work. <span class="muted">A weekly funding-scan that drafts an email.</span></div></div>
+  </div>
+  <p class="frag muted" style="margin-top:1rem">Rule of thumb: start at the lowest rung that does the job. Climb when the task repeats or spans many steps.</p>
+</section>
+
+<!-- 35 · four builds preview -->
+<section class="slide">
+  <div class="slide-kicker">✋ Watch, then try · four live builds</div>
+  <h2>Up the ladder, live</h2>
+  <div class="grid grid-2" style="margin-top:1rem">
+    <div class="card"><span class="badge badge-fdn">Build 1</span><h3>Donor Proposal Assistant</h3><p>A <strong>Project</strong> that knows AATF and drafts tailored concept notes.</p></div>
+    <div class="card"><span class="badge badge-int">Build 2</span><h3>Cowork on a folder</h3><p>Report → 1-page summary → chart → formatted brief. "Now make it French."</p></div>
+    <div class="card"><span class="badge badge-int">Build 3</span><h3>Data → insight</h3><p>A pipeline spreadsheet → conversion rate &amp; trends, with working shown.</p></div>
+    <div class="card"><span class="badge badge-adv">Build 4</span><h3>Monday funding-scan agent</h3><p>Find calls → filter → summarise top 5 → draft email. <em>The agent drafts; a human decides.</em></p></div>
+  </div>
+</section>
+
+<!-- 36 · human boundary -->
+<section class="slide quote">
+  <blockquote>The agent drafts.<br>A human decides.</blockquote>
+  <cite>Automate the work. Never automate the accountability.</cite>
+</section>
+
+<!-- ══════════════ CHAPTER 5 — GOVERNANCE (12:00) ══════════════ -->
+
+<!-- 37 · Section -->
+<section class="slide section">
+  <div class="slide-kicker">Part 5 · 12:00</div>
+  <h1>Using it responsibly</h1>
+  <p class="lead">The rules that let us confidently say <em>yes</em> to AI.</p>
+</section>
+
+<!-- 38 · rigor transfer -->
+<section class="slide">
+  <div class="slide-kicker">The reframe</div>
+  <h2>You already have the discipline. Point it at AI.</h2>
+  <div class="table-wrap" style="margin-top:1rem">
+    <table>
+      <thead><tr><th>Your research habit</th><th>Becomes your AI habit</th></tr></thead>
+      <tbody>
+        <tr><td>Never cite a paper you haven't read</td><td>Never send a citation the AI gave you unread</td></tr>
+        <tr><td>Work from primary data</td><td>Ground the AI in the real source, not its memory</td></tr>
+        <tr><td>Cross-check surprising results</td><td>Verify surprising AI claims a second way</td></tr>
+        <tr><td>Peer review before it goes out</td><td>A human signs off before it leaves AATF</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="frag" style="margin-top:1rem">Making AI reliable isn't a new skill for AATF. It's your <strong>existing standards</strong>, applied to a new tool.</p>
+</section>
+
+<!-- 39 · five questions -->
+<section class="slide">
+  <div class="slide-kicker">Before you paste</div>
+  <h2>Five questions, every time</h2>
+  <ol class="steps" style="max-width:820px">
+    <li><strong>Confidentiality</strong> — am I about to share something I shouldn't?</li>
+    <li><strong>Data protection</strong> — is there personal data in here?</li>
+    <li><strong>Intellectual property</strong> — is this ours to share, and unpublished?</li>
+    <li><strong>Bias &amp; fairness</strong> — could the answer misrepresent our context?</li>
+    <li><strong>Verification</strong> — how will I check this before I trust it?</li>
+  </ol>
+</section>
+
+<!-- 40 · traffic light -->
+<section class="slide">
+  <div class="slide-kicker">The AATF data traffic light</div>
+  <h2>What can I paste?</h2>
+  <div class="grid grid-3" style="margin-top:1rem">
+    <div class="card"><div class="tl tl-green"><span class="dot"></span>Green — go</div><p style="margin-top:.5rem">Public/published info, general drafting, your own non-sensitive text. Any assistant.</p></div>
+    <div class="card"><div class="tl tl-amber"><span class="dot"></span>Amber — care</div><p style="margin-top:.5rem">Internal drafts, partner material, early proposals. De-identify; prefer enterprise accounts. When in doubt, treat as red.</p></div>
+    <div class="card"><div class="tl tl-red"><span class="dot"></span>Red — stop</div><p style="margin-top:.5rem">Personal/HR/medical data, confidential donor/legal material, unpublished IP. Approved tools only — or not at all.</p></div>
+  </div>
+  <div class="callout callout-warn frag" style="margin-top:1.2rem"><p><strong>One-line rule:</strong> if you'd hesitate to email it to a stranger, don't paste it into a public AI.</p></div>
+</section>
+
+<!-- 41 · verify -->
+<section class="slide">
+  <div class="slide-kicker">The habit that matters most</div>
+  <h2>Verify everything that leaves AATF</h2>
+  <p class="lead">Numbers, quotes, and citations get checked against the real source — every time.</p>
+  <div class="callout callout-danger frag" style="margin-top:1.5rem">
+    <p style="font-size:1.3rem;font-weight:700">"A citation you haven't read is not evidence — whether a human or an AI produced it."</p>
+  </div>
+  <p class="frag" style="margin-top:1rem">AI for drafting. <strong>Humans and primary sources for truth.</strong> Treat an AI summary as a map, not the territory.</p>
+</section>
+
+<!-- 42 · ground it -->
+<section class="slide">
+  <div class="slide-kicker">The single biggest reliability lever</div>
+  <h2>Ground it — make it work from the real text</h2>
+  <div class="split">
+    <div>
+      <p class="muted" style="font-weight:600">Ungrounded (risky)</p>
+      <div class="prompt" style="border-left-color:var(--up-red)">What does Kenya's Biosafety Act
+say about field trials?</div>
+      <p class="frag muted" style="font-weight:600;margin-top:1.2rem">Grounded (reliable)</p>
+      <div class="prompt frag">Using ONLY the Act pasted below,
+what are the field-trial requirements?
+If it's not in the text, say
+"not specified."
+
+<span class="ph">[PASTE THE ACT]</span></div>
+    </div>
+    <div class="callout callout-tip frag">
+      <div class="callout-title">Why it works</div>
+      <p>Grounding removes the model's room to invent. It can only answer from what you gave it — and it will tell you when the answer isn't there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 43 · Kenyan context -->
+<section class="slide">
+  <div class="slide-kicker">The Kenyan &amp; African context</div>
+  <h2>Know the ground you stand on</h2>
+  <div class="grid grid-3" style="margin-top:1rem">
+    <div class="card"><h3>Data Protection Act 2019</h3><p>Kenya's ODPC oversees lawful processing, data rights, and limits on fully-automated decisions.</p></div>
+    <div class="card"><h3>National AI Strategy 2025–2030</h3><p>Plus a draft AI Code of Practice — data sovereignty and responsible innovation.</p></div>
+    <div class="card"><h3>KEBS KS 3007:2025</h3><p>Kenya's code of practice for AI applications.</p></div>
+  </div>
+  <div class="callout callout-info frag" style="margin-top:1.2rem"><p>Orientation, not legal advice — confirm specifics with AATF's data-protection lead and counsel, and check each donor's data requirements too.</p></div>
+</section>
+
+<!-- 44 · bias / local context -->
+<section class="slide">
+  <div class="slide-kicker">A special note for African science</div>
+  <h2>The model's blind spots are often <em>your</em> context</h2>
+  <p>These models learned mostly from wealthy, English-dominant data. They can under-represent:</p>
+  <div class="grid grid-2" style="margin-top:1rem">
+    <div class="card"><p>Local crops, farming systems, and agro-ecologies</p></div>
+    <div class="card"><p>African languages, names, and place-specific knowledge</p></div>
+    <div class="card"><p>Gender dynamics in smallholder farming</p></div>
+    <div class="card"><p>Regional regulation and market realities</p></div>
+  </div>
+  <p class="frag" style="margin-top:1.2rem"><strong>So:</strong> give local context explicitly, and have a fluent colleague check technical French/Swahili terms.</p>
+</section>
+
+<!-- 45 · red team -->
+<section class="slide">
+  <div class="slide-kicker">✋ Red-team · spot the problem</div>
+  <h2>What's wrong here?</h2>
+  <div class="stack">
+    <div class="callout"><p><strong>1.</strong> "The AI gave me three journal references for the proposal." <span class="frag">→ Open all three in a real database first. Unread ≠ real.</span></p></div>
+    <div class="callout frag"><p><strong>2.</strong> "It summarised a 40-page regulation for our filing." <span class="frag">→ Ground it in the text, constrain it, and spot-check against the original.</span></p></div>
+    <div class="callout frag"><p><strong>3.</strong> "It calculated our pipeline conversion rate." <span class="frag">→ Have it compute in a spreadsheet showing its working — never head-math into a donor doc.</span></p></div>
+  </div>
+</section>
+
+<!-- ══════════════ CHAPTER 6 — WAY FORWARD (12:40) ══════════════ -->
+
+<!-- 46 · Section -->
+<section class="slide section">
+  <div class="slide-kicker">Part 6 · 12:40</div>
+  <h1>Your move</h1>
+  <p class="lead">A great workshop changes what you do on Monday.</p>
+</section>
+
+<!-- 47 · one pilot -->
+<section class="slide">
+  <div class="slide-kicker">Commit</div>
+  <h2>Each team leaves with <em>one</em> pilot</h2>
+  <div class="table-wrap" style="margin-top:1rem">
+    <table>
+      <thead><tr><th>Unit</th><th>Use case</th><th>Owner</th><th>Rung</th><th>By when</th></tr></thead>
+      <tbody>
+        <tr><td>RMSU</td><td>Concept-note first drafts</td><td class="muted">__________</td><td>2 · Project</td><td class="muted">______</td></tr>
+        <tr><td>Comms</td><td>One message → three audiences</td><td class="muted">__________</td><td>1 · Chat</td><td class="muted">______</td></tr>
+        <tr><td>M&amp;E</td><td>Minutes &amp; action tracker</td><td class="muted">__________</td><td>3 · Cowork</td><td class="muted">______</td></tr>
+        <tr><td class="muted">…your unit</td><td class="muted">…your task</td><td class="muted">__________</td><td class="muted">__</td><td class="muted">______</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="frag muted" style="margin-top:1rem">Small and real beats big and hypothetical. Adoption compounds from small wins.</p>
+</section>
+
+<!-- 48 · personal path -->
+<section class="slide">
+  <div class="slide-kicker">Your personal path</div>
+  <h2>Three levels, at your own pace</h2>
+  <div class="grid grid-3" style="margin-top:1rem">
+    <div class="card"><span class="badge badge-fdn">Weeks 1–2</span><h3>Beginner</h3><p>"I can get useful answers." Daily chat on real tasks; the four-part prompt.</p></div>
+    <div class="card"><span class="badge badge-int">Weeks 3–8</span><h3>Intermediate</h3><p>"I build reusable tools." Projects, Cowork, real deliverables.</p></div>
+    <div class="card"><span class="badge badge-adv">Months 2–3+</span><h3>Advanced</h3><p>"I design workflows and help others." Agents, automation, mentoring.</p></div>
+  </div>
+</section>
+
+<!-- 49 · remember four things -->
+<section class="slide">
+  <div class="slide-kicker">If you remember only four things</div>
+  <h2>The durable ideas</h2>
+  <ol class="steps" style="max-width:820px">
+    <li><strong>Context is everything</strong> — put the right things on the desk.</li>
+    <li><strong>Four-part prompt</strong> — Role · Task · Context · Format.</li>
+    <li><strong>Climb the ladder</strong> — Chat → Projects → Cowork → Agents.</li>
+    <li><strong>Verify before you trust</strong> — and use the traffic light.</li>
+  </ol>
+  <p class="frag muted" style="margin-top:1rem">These outlast any tool, price, or feature. They're the whole game.</p>
+</section>
+
+<!-- 50 · close -->
+<section class="slide title">
+  <div class="slide-kicker" style="color:var(--gold-bright)">Thank you</div>
+  <h1>Now go reclaim your time.</h1>
+  <p class="subtitle">Your Workpack — slides, exercises, prompt library, and further reading — is yours to keep.<br>Start with one real task. Today.</p>
+  <p style="margin-top:2rem;opacity:.75;font-size:1rem">AATF × University of Pretoria (FABI) · 15 July 2026</p>
+</section>
+
+<!-- chrome -->
+<div class="slide-foot no-print">
+  <span class="sf-brand">AATF × FABI · Working with Modern AI</span>
+  <span>15 July 2026 · Nairobi</span>
+</div>
+<div class="deck-nav no-print">
+  <button data-theme title="Toggle theme (T)">◐</button>
+  <button data-prev title="Previous (←)">‹</button>
+  <button data-next title="Next (→)">›</button>
+</div>
+
+<script src="../assets/deck.js"></script>
+</body>
+</html>

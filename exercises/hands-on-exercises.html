@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AATF AI Workshop — Hands-On Exercises</title>
+<link rel="stylesheet" href="../assets/theme.css">
+<style>
+  /* Page-specific touches only — colours/tokens come from theme.css */
+  .ex-head { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 4px; }
+  .ex-head h3 { margin: 0; flex: 1 1 240px; }
+  .ex-num { font-size: 2rem; font-weight: 800; color: var(--brand); line-height: 1; margin-right: 2px; }
+  .learn { color: var(--text-soft); font-style: italic; margin: .25rem 0 1rem; }
+  .part-head { margin: 3rem 0 1.25rem; padding-bottom: .5rem; border-bottom: 2px solid var(--border-strong); }
+  .part-head .kicker { color: var(--gold); }
+  section.card { scroll-margin-top: 20px; }
+  .stretch { margin-top: 1rem; font-size: .95rem; color: var(--text-soft); }
+  .stretch strong { color: var(--brand); }
+  .toc a { display: inline-block; margin: 2px 0; }
+  .weak { border-left: 4px solid var(--up-red); }
+  .strong-b { border-left: 4px solid var(--aatf-leaf); }
+  .mini-label { font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 6px; }
+  .fill-line { border: 1px dashed var(--border-strong); border-radius: var(--r-sm); padding: 10px 12px; margin: 8px 0; color: var(--text-mute); font-family: var(--font-mono); font-size: .85rem; }
+  .theme-toggle { position: fixed; top: 14px; right: 14px; z-index: 50; }
+  @media print { .theme-toggle, .toc-wrap { display: none !important; } }
+</style>
+</head>
+<body>
+
+<button class="btn btn-ghost theme-toggle no-print" onclick="(function(){var r=document.documentElement;var d=r.getAttribute('data-theme')==='dark';r.setAttribute('data-theme',d?'light':'dark');})()">Toggle theme</button>
+
+<!-- ===== Masthead ===== -->
+<header class="masthead">
+  <div class="container" style="padding-top:26px;padding-bottom:26px;">
+    <div class="brandmark">
+      <div class="logo">AI</div>
+      <div>
+        <div style="font-size:1.05rem;">AATF AI Workshop</div>
+        <div style="font-weight:500;opacity:.85;font-size:.85rem;">African Agricultural Technology Foundation &middot; with FABI, University of Pretoria</div>
+      </div>
+    </div>
+    <div style="margin-top:18px;">
+      <div class="chip chip-gold" style="background:rgba(255,255,255,.18);color:#fff;border-color:rgba(255,255,255,.35);">Handout &middot; Nairobi &middot; 15 July 2026</div>
+      <h1 style="color:#fff;margin:12px 0 6px;">Hands-On Exercises</h1>
+      <p style="color:rgba(255,255,255,.9);max-width:640px;margin:0;">A step-by-step guide to using AI (Claude) in your daily work. Follow along during the day, and keep this page to practise afterwards. No prior experience needed — if you can send an email, you can do this.</p>
+    </div>
+  </div>
+</header>
+
+<main class="container" style="padding-top:32px;padding-bottom:64px;">
+
+  <!-- ===== How to use ===== -->
+  <div class="callout callout-info">
+    <div class="callout-title">How to use this handout</div>
+    <p>Each exercise has a difficulty badge, a "You'll learn" line, an estimated time, numbered steps, and a ready-to-copy <strong>prompt</strong>. Text in <span style="color:var(--up-blue);font-weight:700;">[BLUE BRACKETS]</span> is a placeholder — replace it with your own words. Work at your own pace; ask a facilitator when you get stuck.</p>
+  </div>
+
+  <!-- ===== Table of contents ===== -->
+  <div class="card toc-wrap no-print" style="margin:1.5rem 0;">
+    <div class="kicker">On this page</div>
+    <div class="grid grid-2 toc">
+      <div class="stack" style="gap:0;">
+        <div><span class="badge badge-fdn">Foundation</span></div>
+        <a href="#ex1">1. Your first message</a>
+        <a href="#ex2">2. Adding context (files &amp; paste)</a>
+        <a href="#ex3">3. The four-part prompt</a>
+        <a href="#ex4">4. Iterating</a>
+        <a href="#ex5">5. Web search &amp; Deep Research</a>
+        <a href="#ex6">6. Projects</a>
+        <a href="#ex7">7. Connectors</a>
+      </div>
+      <div class="stack" style="gap:0;">
+        <div><span class="badge badge-int">Intermediate</span> &nbsp; <span class="badge badge-adv">Advanced</span></div>
+        <a href="#ex8">8. Productivity with Cowork</a>
+        <a href="#ex9">9. Research with Cowork</a>
+        <a href="#ex10">10. Analysis with Cowork</a>
+        <a href="#ex11">11. A first taste of Claude Code</a>
+        <a href="#verify">Closing · Verify before you trust</a>
+        <a href="#byot">Closing · Bring-your-own-task</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================= -->
+  <!-- PART A -->
+  <!-- ============================================================= -->
+  <div class="part-head">
+    <div class="kicker">Part A</div>
+    <h2>Chat basics</h2>
+    <p class="muted" style="margin:0;">Everything starts with a conversation. Learn to talk to Claude in plain English.</p>
+  </div>
+
+  <!-- Exercise 1 -->
+  <section class="card" id="ex1">
+    <div class="ex-head">
+      <span class="ex-num">1</span>
+      <h3>Your first message</h3>
+      <span class="badge badge-fdn">Foundation</span>
+      <span class="chip chip-plain">~5 min</span>
+    </div>
+    <p class="learn">You'll learn: that using AI is just typing a request in plain English — no special commands.</p>
+    <ol class="steps">
+      <li>Open a web browser and go to <strong>claude.ai</strong>. Sign in with the account the facilitator gave you.</li>
+      <li>Find the message box at the bottom of the screen (it says "How can I help you today?").</li>
+      <li>Copy the prompt below. Paste it in, then paste a paragraph of AATF text (e.g. an intro from a TELA Maize update) where it says <span style="color:var(--up-blue);font-weight:700;">[PASTE PARAGRAPH]</span>.</li>
+      <li>Press <span class="kbd">Enter</span> and read what comes back.</li>
+    </ol>
+    <div class="prompt">Summarise the paragraph below into 5 short bullet points for a busy director who has 30 seconds. Keep each bullet under 15 words.
+
+<span class="ph">[PASTE PARAGRAPH]</span></div>
+    <div class="callout callout-tip">
+      <div class="callout-title">What good looks like</div>
+      <p>Five tight bullets that a director could skim in half a minute — no jargon, no filler. If a bullet is too long or vague, that is normal; you will fix it in Exercise 4.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> Ask "Now give me a one-sentence version for a text message."</p>
+  </section>
+
+  <!-- Exercise 2 -->
+  <section class="card" id="ex2" style="margin-top:20px;">
+    <div class="ex-head">
+      <span class="ex-num">2</span>
+      <h3>Adding context — files &amp; paste</h3>
+      <span class="badge badge-fdn">Foundation</span>
+      <span class="chip chip-plain">~8 min</span>
+    </div>
+    <p class="learn">You'll learn: Claude answers far better when you give it your document to read, instead of relying on its memory.</p>
+    <ol class="steps">
+      <li>Find a real document on your desk — a PBR cowpea brief, a biosafety note, or a donor concept note.</li>
+      <li>In Claude, click the <strong>paperclip / attach</strong> icon near the message box and upload the file (PDF or Word). Or simply copy the text and paste it in.</li>
+      <li>Ask a question that can only be answered from that document, using the grounding prompt below.</li>
+      <li>Notice: Claude now quotes <em>your</em> facts, not general knowledge. If something is missing it should say "not specified".</li>
+    </ol>
+    <div class="prompt">Using ONLY the text below, answer my question. If the answer is not in the text, reply exactly: "not specified". Do not use outside knowledge.
+
+QUESTION: <span class="ph">[YOUR QUESTION, e.g. "Which countries are covered by this cowpea trial?"]</span>
+
+TEXT:
+<span class="ph">[PASTE OR ATTACH THE DOCUMENT]</span></div>
+    <div class="callout callout-tip">
+      <div class="callout-title">What good looks like</div>
+      <p>Answers that match your document exactly, and an honest "not specified" when the document is silent. This "grounding" is how you stop the AI from guessing.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> Ask the same question <em>without</em> attaching the file. Compare the two answers — that difference is why context matters.</p>
+  </section>
+
+  <!-- Exercise 3 -->
+  <section class="card" id="ex3" style="margin-top:20px;">
+    <div class="ex-head">
+      <span class="ex-num">3</span>
+      <h3>The four-part prompt</h3>
+      <span class="badge badge-fdn">Foundation</span>
+      <span class="chip chip-plain">~10 min</span>
+    </div>
+    <p class="learn">You'll learn: a simple recipe for strong prompts — <strong>Role &middot; Task &middot; Context &middot; Format</strong>.</p>
+    <div class="grid grid-2">
+      <div class="card weak" style="box-shadow:none;">
+        <div class="mini-label" style="color:var(--up-red);">✗ Weak prompt</div>
+        <div class="prompt" style="border-left-color:var(--up-red);margin-top:0;">write about maize</div>
+        <p class="muted" style="margin:0;font-size:.9rem;">Too vague. Claude has to guess who it's for, what you want, and how long.</p>
+      </div>
+      <div class="card strong-b" style="box-shadow:none;">
+        <div class="mini-label" style="color:var(--fabi-deep);">✓ Strong prompt</div>
+        <div class="prompt" style="border-left-color:var(--aatf-leaf);margin-top:0;"><strong>Role:</strong> You are a science communicator for AATF.
+<strong>Task:</strong> Write a 120-word summary of TELA Maize benefits for smallholder farmers.
+<strong>Context:</strong> Insect-resistant, drought-tolerant hybrid maize; audience is a district extension officer.
+<strong>Format:</strong> Three short paragraphs, plain English, no acronyms.</div>
+      </div>
+    </div>
+    <ol class="steps" style="margin-top:1.25rem;">
+      <li>Read the two prompts above. See how the strong one names the <strong>Role</strong>, the <strong>Task</strong>, the <strong>Context</strong>, and the <strong>Format</strong>.</li>
+      <li>Run the strong prompt in Claude.</li>
+      <li>Now rewrite a request of your own using the four-part template below — pick a task from your real work.</li>
+    </ol>
+    <div class="prompt"><strong>Role:</strong> You are <span class="ph">[WHO CLAUDE SHOULD ACT AS]</span>.
+<strong>Task:</strong> <span class="ph">[WHAT YOU WANT DONE]</span>.
+<strong>Context:</strong> <span class="ph">[BACKGROUND, AUDIENCE, ANY FACTS]</span>.
+<strong>Format:</strong> <span class="ph">[LENGTH, STYLE, BULLETS/TABLE/PARAGRAPHS]</span>.</div>
+    <div class="callout callout-tip">
+      <div class="callout-title">What good looks like</div>
+      <p>Your rewritten prompt reads like a clear brief you'd give a capable new colleague. When you can fill all four parts, the answer usually lands first time.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> Save your favourite four-part template in a notes file — you will reuse it every day.</p>
+  </section>
+
+  <!-- Exercise 4 -->
+  <section class="card" id="ex4" style="margin-top:20px;">
+    <div class="ex-head">
+      <span class="ex-num">4</span>
+      <h3>Iterating — it's a conversation</h3>
+      <span class="badge badge-fdn">Foundation</span>
+      <span class="chip chip-plain">~7 min</span>
+    </div>
+    <p class="learn">You'll learn: you don't need the perfect prompt. Refine the answer with short follow-ups.</p>
+    <ol class="steps">
+      <li>Take the maize summary from Exercise 3 (or any answer already on screen).</li>
+      <li>Type each follow-up below <strong>one at a time</strong>, reading the new result before the next.</li>
+      <li>Notice Claude keeps the earlier context — you only say what to change.</li>
+    </ol>
+    <div class="prompt">Make it shorter — half the length.</div>
+    <div class="prompt">Now make it more formal, for a donor report.</div>
+    <div class="prompt">Now translate it into French for our West Africa colleagues.</div>
+    <div class="prompt">Add a small table comparing TELA Maize with conventional maize (yield, drought, pest damage).</div>
+    <div class="callout callout-tip">
+      <div class="callout-title">What good looks like</div>
+      <p>Each reply builds on the last without you re-pasting anything. Treating it as a back-and-forth chat — not one perfect command — is the single biggest skill today.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> If a reply drifts, say "Go back to the previous version and only change the title."</p>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PART B -->
+  <!-- ============================================================= -->
+  <div class="part-head">
+    <div class="kicker">Part B</div>
+    <h2>Reach for more</h2>
+    <p class="muted" style="margin:0;">Beyond a single chat: pull in the live web, save context, and connect your files.</p>
+  </div>
+
+  <!-- Exercise 5 -->
+  <section class="card" id="ex5">
+    <div class="ex-head">
+      <span class="ex-num">5</span>
+      <h3>Web search &amp; Deep Research</h3>
+      <span class="badge badge-fdn">Foundation</span>
+      <span class="chip chip-plain">~10 min</span>
+    </div>
+    <p class="learn">You'll learn: Claude can look things up on the live web — and always check its sources.</p>
+    <ol class="steps">
+      <li>Start a new chat. Ask the search prompt below about a donor relevant to your programme.</li>
+      <li>When the answer appears, click the <strong>source links</strong> Claude cites and confirm they are real and recent.</li>
+      <li>Now try <strong>Deep Research</strong>: turn it on (button near the message box) and run the second prompt. It will take a few minutes and produce a longer, structured report with references.</li>
+    </ol>
+    <div class="prompt">Search the web for the current funding priorities of <span class="ph">[DONOR, e.g. the Gates Foundation agriculture programme]</span> for 2026. Give me 5 bullet points and include the source link for each.</div>
+    <div class="prompt">Run a deep research report on recent funding calls relevant to Striga control in cereal crops in sub-Saharan Africa. Organise by funder, deadline, and focus area, with sources.</div>
+    <div class="callout callout-warn">
+      <div class="callout-title">Always verify</div>
+      <p>AI can occasionally state something confidently that is wrong or out of date. For anything you'll act on — deadlines, figures, quotes — open the cited source and confirm it yourself.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> Ask "Which of these sources is the most authoritative, and why?"</p>
+  </section>
+
+  <!-- Exercise 6 -->
+  <section class="card" id="ex6" style="margin-top:20px;">
+    <div class="ex-head">
+      <span class="ex-num">6</span>
+      <h3>Projects — reusable context</h3>
+      <span class="badge badge-int">Intermediate</span>
+      <span class="chip chip-plain">~12 min</span>
+    </div>
+    <p class="learn">You'll learn: Projects hold background material once, so every chat inside already "knows" it.</p>
+    <ol class="steps">
+      <li>In claude.ai, open the <strong>Projects</strong> area and click <strong>New Project</strong>. Name it <em>Donor Proposal Assistant</em>.</li>
+      <li>Add background material to the project's knowledge: an "About AATF" boilerplate, your house <strong>style guide</strong>, and one past concept note as an example.</li>
+      <li>In the project's custom instructions, paste the note below so every chat behaves consistently.</li>
+      <li>Start a chat <em>inside the project</em> and try the drafting prompt. Notice you didn't have to re-explain who AATF is.</li>
+    </ol>
+    <div class="prompt"><strong>Project instructions:</strong> You help AATF staff draft donor concept notes. Always use the About-AATF boilerplate and the style guide in this project. Prefer plain English, active voice, and UK spelling. When facts are missing, ask me rather than inventing them.</div>
+    <div class="prompt">Draft a 1-page concept note for a project on <span class="ph">[TOPIC, e.g. scaling PBR cowpea in Nigeria and Ghana]</span>. Use our standard structure: problem, approach, expected impact, budget headline.</div>
+    <div class="callout callout-tip">
+      <div class="callout-title">What good looks like</div>
+      <p>The draft already sounds like AATF and follows your structure — because the project supplied the context automatically. Reuse this project for every proposal.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> Build a second project, "Translation &amp; EN/FR", holding your bilingual glossary for West Africa.</p>
+  </section>
+
+  <!-- Exercise 7 -->
+  <section class="card" id="ex7" style="margin-top:20px;">
+    <div class="ex-head">
+      <span class="ex-num">7</span>
+      <h3>Connectors — reaching your files</h3>
+      <span class="badge badge-int">Intermediate</span>
+      <span class="chip chip-plain">~8 min &middot; concept</span>
+    </div>
+    <p class="learn">You'll learn: connectors let Claude read from tools like Google Drive — and why governance matters before you switch one on.</p>
+    <ol class="steps">
+      <li>Open <strong>Settings &rarr; Connectors</strong> in claude.ai. Look at what's available (e.g. Google Drive, a shared database).</li>
+      <li><strong>Before connecting anything</strong>, ask: does this folder contain personal data, unpublished results, or partner-confidential material? If yes, do not connect it without approval.</li>
+      <li>If appropriate, connect a <em>low-risk</em> folder — for example a shared drive of already-published fact sheets.</li>
+      <li>Ask Claude to find and summarise one document from that connected source.</li>
+    </ol>
+    <div class="prompt">From my connected Drive, find the latest published fact sheet on cassava and give me its three key messages.</div>
+    <div class="callout callout-warn">
+      <div class="callout-title">Governance first</div>
+      <p>Only connect what you're authorised to share, and only the narrowest folder you need. When in doubt, check the workshop's <strong>Responsible Use</strong> guidance and ask your data owner. A connector is a door — decide carefully what's behind it.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> List, on paper, which of your folders are green / amber / red for connecting.</p>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PART C -->
+  <!-- ============================================================= -->
+  <div class="part-head">
+    <div class="kicker">Part C</div>
+    <h2>Cowork — get real deliverables</h2>
+    <p class="muted" style="margin:0;">Point Claude at a folder of files and have it produce finished documents, tables, and charts.</p>
+  </div>
+
+  <!-- Exercise 8 -->
+  <section class="card" id="ex8">
+    <div class="ex-head">
+      <span class="ex-num">8</span>
+      <h3>Productivity with Cowork</h3>
+      <span class="badge badge-int">Intermediate</span>
+      <span class="chip chip-plain">~12 min</span>
+    </div>
+    <p class="learn">You'll learn: Cowork works across your files and hands back real deliverables you can steer live.</p>
+    <ol class="steps">
+      <li>Open <strong>Cowork</strong> and point it at the workshop <em>sample folder</em> (or your own folder) containing a long report.</li>
+      <li>Run the first prompt to get a one-page summary. Read it.</li>
+      <li>Run the second prompt to turn a key figure into a chart.</li>
+      <li>Steer it live with the third prompt — watch it redo the work in French without starting over.</li>
+    </ol>
+    <div class="prompt">Read <span class="ph">[REPORT FILE NAME]</span> in this folder and turn it into a clear one-page summary for our board: headline, three findings, one recommendation.</div>
+    <div class="prompt">Now make a simple bar chart of the yield figures from that report and save it as an image.</div>
+    <div class="prompt">Now produce the summary again as a formatted brief — and make it French.</div>
+    <div class="callout callout-tip">
+      <div class="callout-title">What good looks like</div>
+      <p>You end with actual files — a one-pager, a chart image, and a French brief — not just text on screen. Steering ("now make it French") mid-task is the whole point of Cowork.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> Ask it to combine the summary and chart into a single 2-page PDF brief.</p>
+  </section>
+
+  <!-- Exercise 9 -->
+  <section class="card" id="ex9" style="margin-top:20px;">
+    <div class="ex-head">
+      <span class="ex-num">9</span>
+      <h3>Research with Cowork</h3>
+      <span class="badge badge-int">Intermediate</span>
+      <span class="chip chip-plain">~12 min</span>
+    </div>
+    <p class="learn">You'll learn: to run a quick landscape scan and get a structured comparison table with sources.</p>
+    <ol class="steps">
+      <li>In Cowork, run the scan prompt below on a topic you care about.</li>
+      <li>Ask it to save the result as a table file (spreadsheet or document).</li>
+      <li>Spot-check two or three rows against the cited sources.</li>
+    </ol>
+    <div class="prompt">Do a landscape scan of <span class="ph">[TOPIC, e.g. drought-tolerant maize varieties released in East Africa since 2020]</span>. Produce a comparison table with columns: variety, developer, key trait, country released, and source link. Save it as a spreadsheet.</div>
+    <div class="callout callout-tip">
+      <div class="callout-title">What good looks like</div>
+      <p>A tidy table you could drop into a briefing, with a source for every row so a colleague can verify it. Missing cells should read "not found", not be invented.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> Ask "Add a column flagging which varieties are relevant to our current programmes."</p>
+  </section>
+
+  <!-- Exercise 10 -->
+  <section class="card" id="ex10" style="margin-top:20px;">
+    <div class="ex-head">
+      <span class="ex-num">10</span>
+      <h3>Analysis with Cowork</h3>
+      <span class="badge badge-int">Intermediate</span>
+      <span class="chip chip-plain">~12 min</span>
+    </div>
+    <p class="learn">You'll learn: to get trustworthy numbers by making Claude compute in a spreadsheet and show its working.</p>
+    <ol class="steps">
+      <li>Open the mock <strong>M&amp;E / pipeline spreadsheet</strong> provided (or one of your own with no sensitive data).</li>
+      <li>Run the analysis prompt. The key instruction: it must <strong>calculate in a spreadsheet</strong>, not do arithmetic in its head.</li>
+      <li>Open the resulting file and check a formula or two yourself.</li>
+    </ol>
+    <div class="prompt">Using the file <span class="ph">[SPREADSHEET NAME]</span>, calculate the conversion rate from leads to funded projects and the trend over the last four quarters. Compute everything in a spreadsheet with visible formulas and show your working — do not estimate in your head. Then explain the result in three sentences.</div>
+    <div class="callout callout-warn">
+      <div class="callout-title">Why "show your working"</div>
+      <p>For anything numeric, insist on spreadsheet formulas you can inspect. Head-math from an AI can be wrong; a formula you can click on can be checked.</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> Ask it to add a chart of the quarterly trend and flag the weakest stage in the pipeline.</p>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- PART D -->
+  <!-- ============================================================= -->
+  <div class="part-head">
+    <div class="kicker">Part D</div>
+    <h2>Claude Code — where this leads</h2>
+    <p class="muted" style="margin:0;">Optional and awareness-only. A glimpse of the most powerful tool, for those who want to go further.</p>
+  </div>
+
+  <!-- Exercise 11 -->
+  <section class="card" id="ex11">
+    <div class="ex-head">
+      <span class="ex-num">11</span>
+      <h3>A first taste of Claude Code</h3>
+      <span class="badge badge-adv">Advanced</span>
+      <span class="chip chip-plain">~10 min &middot; optional</span>
+    </div>
+    <p class="learn">You'll learn: what Claude Code is — an AI agent that lives in your computer's terminal and can read, write, and organise files and run checks.</p>
+    <div class="callout callout-info">
+      <div class="callout-title">This one is optional</div>
+      <p>Don't worry if this feels like a step too far today — it's here so you know it exists. Everything above already covers most daily work. Come back to this when you're curious.</p>
+    </div>
+    <ol class="steps">
+      <li>With a facilitator, open the <strong>terminal</strong> and start Claude Code in a folder of sample data files (never real sensitive data for a first try).</li>
+      <li>Ask it, in plain English, to tidy the folder — it will propose steps and ask before changing anything.</li>
+      <li>Try a light quality check on a CSV. Read what it reports back.</li>
+      <li>Notice it explains each action; you stay in control and approve changes.</li>
+    </ol>
+    <div class="prompt">Look at the files in this folder. Rename them into a consistent pattern by crop and date, group them into subfolders by crop, and show me the plan before making any changes.</div>
+    <div class="prompt">Open <span class="ph">[DATA FILE].csv</span> and run a quality check: count the rows, list any empty or duplicate entries, and flag values that look out of range. Don't change the file — just report.</div>
+    <div class="callout callout-tip">
+      <div class="callout-title">Where this leads</div>
+      <p>Claude Code shines at repetitive file, data, and admin tasks across many files at once. A fuller, step-by-step tutorial is in the workshop <strong>resources</strong> (see <code>03 - claude training / claude-code-tutorial</code>).</p>
+    </div>
+    <p class="stretch"><strong>Try next:</strong> Only if you're comfortable — ask it to generate a short README describing what's in the tidied folder.</p>
+  </section>
+
+  <!-- ============================================================= -->
+  <!-- CLOSING -->
+  <!-- ============================================================= -->
+  <div class="part-head">
+    <div class="kicker">Closing</div>
+    <h2>Before you leave</h2>
+  </div>
+
+  <!-- Verify card -->
+  <section id="verify">
+    <div class="callout callout-warn">
+      <div class="callout-title">⚠ Verify before you trust</div>
+      <p>AI is a brilliant first-drafter, not a final authority. It can sound certain and still be wrong — especially on numbers, names, dates, citations, and anything regulatory or biosafety-related.</p>
+      <p style="margin-bottom:0;"><strong>Your rule of thumb:</strong> if a mistake would matter, check the source, check the maths, and have a human sign off. You are accountable for what you send — the AI is not.</p>
+    </div>
+  </section>
+
+  <!-- Bring your own task -->
+  <section class="card" id="byot" style="margin-top:20px;">
+    <div class="ex-head">
+      <span class="ex-num">★</span>
+      <h3>Bring-your-own-task worksheet</h3>
+      <span class="chip chip-gold">Take-home</span>
+    </div>
+    <p class="learn">Pick one real task from your desk this week. Fill in the four parts, then paste it into Claude.</p>
+    <div class="prompt"><strong>Role:</strong> <span class="ph">[Who should Claude act as? e.g. an AATF science writer]</span>
+
+<strong>Task:</strong> <span class="ph">[What exactly do you want done?]</span>
+
+<strong>Context:</strong> <span class="ph">[Who is it for? What facts/documents matter? Attach or paste them.]</span>
+
+<strong>Format:</strong> <span class="ph">[How long? Bullets, table, brief, English or French?]</span></div>
+    <p class="mini-label" style="margin-top:1.25rem;">Then note, by hand:</p>
+    <div class="fill-line">The one follow-up I'll use to refine it: ______________________________</div>
+    <div class="fill-line">What I must verify before I use the result: ______________________________</div>
+    <div class="callout callout-tip">
+      <div class="callout-title">You're ready</div>
+      <p>If you can fill this worksheet and remember to verify, you can already save yourself hours every week. Keep this handout and practise one task a day.</p>
+    </div>
+  </section>
+
+  <hr>
+  <p class="center muted" style="font-size:.85rem;">AATF AI Workshop &middot; Hands-On Exercises &middot; Prepared with FABI, University of Pretoria &middot; Nairobi, 15 July 2026.<br>Claude and AI tools change quickly — screens may look slightly different from these steps. Ask a facilitator if anything has moved.</p>
+
+</main>
+</body>
+</html>

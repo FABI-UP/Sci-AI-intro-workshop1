@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AATF AI Workshop — Facilitator Guide</title>
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .toc { position:sticky; top:1rem; }
+  .lead-in { font-size:1.15rem; color:var(--text-soft); }
+  .build { border-left:4px solid var(--brand); padding-left:1.2rem; margin:1.5rem 0; }
+  .legend span { margin-right:1.2rem; }
+  @media print { .no-print{display:none;} }
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="container" style="padding:1.5rem 24px; display:flex; align-items:center; gap:14px;">
+    <div class="brandmark"><span class="logo">AI</span> AATF × FABI · AI Workshop</div>
+    <span style="margin-left:auto; opacity:.85; font-weight:600;">Facilitator Guide</span>
+  </div>
+</header>
+
+<main class="container narrow" style="padding:2.5rem 24px 4rem;">
+  <p class="no-print"><a href="index.html">← Back to workpack</a></p>
+  <h1>Facilitator Guide</h1>
+  <p class="lead-in">How the pieces fit, how to run the day, and the four live builds scripted step-by-step. Built to complement Prof. Slippers' detailed Day-3 Programme &amp; Session Plan — this guide focuses on the AI demos and the workpack materials.</p>
+
+  <div class="callout callout-info">
+    <div class="callout-title">The teaching philosophy</div>
+    <p>Show, then let them try. People leave having <em>done</em> something, not just watched. Use real work, not toy examples. Give explicit permission to be a beginner. The audience needs a <strong>working</strong> mental model, not an accurate one.</p>
+  </div>
+
+  <h2>Before the day</h2>
+  <ol class="steps">
+    <li><strong>Test every demo live</strong> the day before, on the venue wifi if possible. Record a screen-capture of each of the four builds as a <strong>fallback</strong> in case the network fails.</li>
+    <li><strong>Load the demo assets.</strong> Have the <a href="demo-assets/README.html">demo pack</a> in a folder on the presenting machine, and a Project pre-seeded with the "About AATF" boilerplate.</li>
+    <li><strong>Print the prompt cards</strong> (last section of the <a href="exercises/prompt-library.html">Prompt Library</a>) — one set per participant. Pair anyone without a device.</li>
+    <li><strong>Accounts:</strong> demo on Claude Pro. Have one Team/Enterprise example ready to show the data-handling difference. Scaling is a decision for the afternoon, not a prerequisite for today.</li>
+    <li><strong>Open the deck</strong> at <code>slides/index.html</code>, press <span class="kbd">F</span> for full screen. Arrow keys advance; some slides reveal in steps.</li>
+  </ol>
+
+  <h2>Running the deck</h2>
+  <p class="legend"><span>🎤 talk</span> <span>🖥️ demo</span> <span>✋ guided try</span> <span>💬 discussion</span></p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Time</th><th>Slides</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>09:00</td><td>1–5</td><td>🎤 Open with the carwash story (slide 2) — it lands the "capable but fallible" idea and gets a laugh. Capture the flipchart question: <em>"one task this week you wish you hadn't done by hand."</em> Use their answers as live demo fodder.</td></tr>
+        <tr><td>09:15</td><td>6–23</td><td>🎤 The conceptual core. Don't rush slides 7–14 (predicts, not looks up · context · jagged intelligence) — everything else builds on them. Slides 16–23 (the science wins) re-energise; the Nuru cassava example (21) is the closest to home. Use slide 22 (the hype cautionary tale) to validate their scepticism.</td></tr>
+        <tr><td>10:00</td><td>24–27</td><td>🖥️ Demo "same request three ways" (26). Then ✋ Guided Try #1 (27): everyone summarises a real document. Aim for a room-wide "it worked!". This is the confidence moment.</td></tr>
+        <tr><td>11:00</td><td>28–36</td><td>🖥️ The centrepiece — the four live builds (scripted below). Slides 28–34 set up agents, tools, and the ladder; 35 previews the builds; 36 is the human-boundary line.</td></tr>
+        <tr><td>12:00</td><td>37–45</td><td>🎤 Governance as <em>enabler</em>. The rigor-transfer table (38) flatters a scientific audience — lean into it. Run the red-team exercise (45) as a 💬 table discussion; reveal answers one at a time.</td></tr>
+        <tr><td>12:40</td><td>46–50</td><td>💬 Each unit names one pilot, owner, and date — capture it live on slide 47's table (or a flipchart). Close on the four durable ideas (49).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The four live builds (11:00)</h2>
+  <p>Each build climbs one rung. Narrate what you're doing and why. If a build stalls, cut to the fallback recording and keep moving.</p>
+
+  <div class="build">
+    <span class="badge badge-fdn">Build 1 · Project · ~12 min</span>
+    <h3>Donor Proposal Assistant</h3>
+    <p>Create a <strong>Project</strong> in claude.ai. Add <code>about-aatf-boilerplate.md</code> and <code>donor-brief.md</code> as project knowledge. Then prompt: <em>"Draft a 1-page concept note on the TELA maize scale-up for Donor Foundation X, using our About text and their funding priorities."</em> Show how the Project <strong>remembers context</strong> so you don't re-paste it every time.</p>
+  </div>
+
+  <div class="build">
+    <span class="badge badge-int">Build 2 · Cowork · ~15 min</span>
+    <h3>Report → summary → chart → brief</h3>
+    <p>Point Cowork at the demo folder. Ask it to turn <code>sample-report.md</code> into a 1-page summary, then a chart of the key figures, then a formatted brief. Steer live: <em>"Now give me the French version."</em> Shows Cowork working <strong>across files</strong> and producing real deliverables while you direct it.</p>
+  </div>
+
+  <div class="build">
+    <span class="badge badge-int">Build 3 · Data → insight · ~10 min</span>
+    <h3>Pipeline conversion rate</h3>
+    <p>Give it <code>pipeline-data.csv</code>. Ask for the lead-to-deployed conversion rate and a breakdown by country and crop — insisting it <strong>compute in a spreadsheet and show its working</strong>, not do head-math. This is the "compute, don't guess" governance lesson, shown live.</p>
+  </div>
+
+  <div class="build">
+    <span class="badge badge-adv">Build 4 · Agent · ~15 min</span>
+    <h3>The "Monday funding-scan"</h3>
+    <p>Describe (or demo) a scheduled agent that each Monday: finds new funding calls → filters to AATF's themes → summarises the top 5 → drafts an email to RMSU. Land the line: <strong>the agent drafts; a human decides.</strong> This is the top of the ladder — recurring, autonomous, but always human-approved.</p>
+  </div>
+
+  <div class="callout callout-warn">
+    <div class="callout-title">If the wifi fails</div>
+    <p>Switch to the fallback screen-recordings and narrate them exactly as if live. The <em>concepts</em> — the ladder, the four-part prompt, the traffic light, verify-everything — are what participants take home, and those are platform- and network-independent.</p>
+  </div>
+
+  <h2>Feeding the afternoon (14:00)</h2>
+  <p>Carry three things into the joint 3-day review:</p>
+  <ul>
+    <li><strong>The pilot list</strong> — each unit's committed use case, owner, and date (slide 47).</li>
+    <li><strong>Governance decisions</strong> — adopt a light AI policy? default to Team accounts beyond green-light work? name an owner (ICT + AI working group)?</li>
+    <li><strong>Capability needs</strong> — who wants to go further, and what a follow-up clinic (4–6 weeks out) should cover.</li>
+  </ul>
+
+  <p class="muted" style="margin-top:2rem">Tool features and prices are current as of July 2026. The durable content — the four-part prompt, the escalation ladder, the traffic light, and verify-everything — is platform-neutral and long-lived.</p>
+</main>
+
+</body>
+</html>

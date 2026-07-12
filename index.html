@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AATF AI Workshop — Workpack</title>
+<link rel="stylesheet" href="assets/theme.css">
+<style>
+  .hero { background: linear-gradient(140deg, var(--aatf-navy) 0%, var(--fabi-forest) 65%, var(--fabi-green) 115%); color:#fff; padding: 4rem 0 3.5rem; }
+  .hero .container { position: relative; z-index:1; }
+  .hero .eyebrow { color: var(--gold-bright); font-weight:800; letter-spacing:.1em; text-transform:uppercase; font-size:.8rem; }
+  .hero h1 { color:#fff; font-size: clamp(2.2rem,5vw,3.4rem); margin:.4em 0 .3em; }
+  .hero p { color: rgba(255,255,255,.9); font-size:1.15rem; max-width:60ch; }
+  .hero-meta { margin-top:1.5rem; display:flex; gap:1.5rem; flex-wrap:wrap; font-size:.95rem; color:rgba(255,255,255,.8); }
+  .section-title { font-size:.8rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:var(--brand); margin: 2.5rem 0 1rem; }
+  .tile { display:flex; flex-direction:column; height:100%; text-decoration:none; color:inherit; }
+  .tile:hover { text-decoration:none; }
+  .tile .ic { font-size:1.8rem; margin-bottom:.4rem; }
+  .tile h3 { margin:.1rem 0 .4rem; }
+  .tile .go { margin-top:auto; color:var(--brand); font-weight:700; font-size:.9rem; padding-top:.8rem; }
+  .runsheet td:first-child { white-space:nowrap; font-variant-numeric:tabular-nums; font-weight:700; color:var(--brand-strong); }
+  .footer { border-top:1px solid var(--border); margin-top:3rem; padding:2rem 0; color:var(--text-mute); font-size:.9rem; }
+  .logos { display:flex; gap:.75rem; align-items:center; flex-wrap:wrap; }
+  .pill { display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:999px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); font-size:.85rem; font-weight:600; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow">AATF × University of Pretoria (FABI) · Nairobi · 15 July 2026</div>
+    <h1>Working with Modern AI</h1>
+    <p>Your complete workpack for the AI training day — slides, hands-on exercises, a prompt library, demo materials, and further reading. Everything works offline. Everything is yours to keep.</p>
+    <div class="hero-meta">
+      <div class="logos">
+        <span class="pill">🌱 AATF</span>
+        <span class="pill">🎓 UP · FABI</span>
+        <span class="pill">🤖 Agentic AI · 2026</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <div class="section-title">Start here</div>
+  <div class="grid grid-3">
+    <a class="card card-hover tile" href="slides/index.html">
+      <div class="ic">🖥️</div>
+      <h3>The Slides</h3>
+      <p class="soft">The full-day deck — from "what is an LLM?" to agents, governance, and your next steps. Present it, or read it back.</p>
+      <span class="go">Open the deck →</span>
+    </a>
+    <a class="card card-hover tile" href="exercises/hands-on-exercises.html">
+      <div class="ic">✋</div>
+      <h3>Hands-On Exercises</h3>
+      <p class="soft">Step-by-step exercises up the escalation ladder: chat → context → Projects → Cowork → a first taste of Claude Code.</p>
+      <span class="go">Start practising →</span>
+    </a>
+    <a class="card card-hover tile" href="exercises/prompt-library.html">
+      <div class="ic">📚</div>
+      <h3>Prompt Library</h3>
+      <p class="soft">Copy-ready prompts for every AATF function, plus six printable prompt cards. Reach for it any time.</p>
+      <span class="go">Browse prompts →</span>
+    </a>
+  </div>
+
+  <div class="section-title">Run of the day</div>
+  <div class="card">
+    <div class="table-wrap" style="margin:0;border:0">
+      <table class="runsheet">
+        <thead><tr><th>Time</th><th>Session</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td>09:00</td><td>Opening &amp; framing</td><td>Why AI, why now; the promise; ground rules <span class="chip chip-plain">Slides 1–5</span></td></tr>
+          <tr><td>09:15</td><td>Understanding AI</td><td>What it is, context, limits, and what scientists have done <span class="chip chip-plain">Slides 6–23</span></td></tr>
+          <tr><td>10:00</td><td>Practical applications</td><td>The use-case map + Guided Try #1 <span class="chip chip-plain">Slides 24–27 · Ex. 1–4</span></td></tr>
+          <tr><td>10:45</td><td>Tea break</td><td>—</td></tr>
+          <tr><td>11:00</td><td>Chat → Cowork → agents</td><td>Four live builds up the ladder <span class="chip chip-plain">Slides 28–36 · Ex. 5–11</span></td></tr>
+          <tr><td>12:00</td><td>Governance &amp; responsible use</td><td>Traffic light, verify-everything, red-team <span class="chip chip-plain">Slides 37–45</span></td></tr>
+          <tr><td>12:40</td><td>Reflections &amp; pilots</td><td>Each unit commits to one pilot <span class="chip chip-plain">Slides 46–50</span></td></tr>
+          <tr><td>14:00</td><td>Joint review &amp; way forward</td><td>Feeds into the 3-day wrap-up</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-title">For the facilitators</div>
+  <div class="grid grid-2">
+    <a class="card card-hover tile" href="demo-assets/README.html">
+      <div class="ic">🎬</div>
+      <h3>Demo Assets</h3>
+      <p class="soft">Fictional AATF materials for the live builds — a project report, a pipeline spreadsheet, a messy transcript, donor briefs. Safe to paste anywhere.</p>
+      <span class="go">See demo pack →</span>
+    </a>
+    <a class="card card-hover tile" href="facilitator-guide.html">
+      <div class="ic">🧭</div>
+      <h3>Facilitator Guide</h3>
+      <p class="soft">How the pieces fit, timing, the four live builds scripted, and fallback tips if the wifi misbehaves.</p>
+      <span class="go">Read the guide →</span>
+    </a>
+  </div>
+
+  <div class="section-title">Go further</div>
+  <div class="grid grid-3">
+    <a class="card card-hover tile" href="resources/claude-code-guide.html">
+      <div class="ic">⌨️</div>
+      <h3>Claude Code — A Guide for Scientists</h3>
+      <p class="soft">A deeper, self-paced guide to the terminal agent: prompting, projects, automation, and real scientific workflows.</p>
+      <span class="go">Open the guide →</span>
+    </a>
+    <a class="card card-hover tile" href="resources/programming-with-intelligence.pdf">
+      <div class="ic">🧠</div>
+      <h3>Programming With Intelligence</h3>
+      <p class="soft">Arné's deeper talk on how these models actually work — for the curious who want the full picture.</p>
+      <span class="go">Open the PDF →</span>
+    </a>
+    <div class="card tile">
+      <div class="ic">🔗</div>
+      <h3>Keep learning</h3>
+      <p class="soft">Vendor docs, Kenya's ODPC &amp; National AI Strategy, and the "monthly AI show &amp; tell" habit. Follow 2–3 newsletters, not the firehose.</p>
+      <span class="go muted">See the Roadmap doc</span>
+    </div>
+  </div>
+
+  <div class="callout callout-tip" style="margin-top:2.5rem">
+    <div class="callout-title">The four ideas that outlast every tool</div>
+    <p><strong>1.</strong> Context is everything. &nbsp; <strong>2.</strong> Role · Task · Context · Format. &nbsp; <strong>3.</strong> Climb the ladder: Chat → Projects → Cowork → Agents. &nbsp; <strong>4.</strong> Verify before you trust.</p>
+  </div>
+
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="logos" style="justify-content:space-between">
+      <span><strong>AATF AI Workshop</strong> · Working with Modern AI</span>
+      <span>Prepared for AATF by Prof. Bernard Slippers &amp; Arné Schreuder · Content current as of July 2026</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

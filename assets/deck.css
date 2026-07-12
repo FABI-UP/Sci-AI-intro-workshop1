@@ -1,0 +1,94 @@
+/* ============================================================================
+   Slide-deck framework — builds on theme.css
+   16:9 slides, keyboard + touch nav, progress bar, presenter-friendly.
+   ============================================================================ */
+
+.deck { overflow: hidden; }
+body.deck-body { overflow: hidden; height: 100vh; background: var(--bg-sunk); }
+
+.slide {
+  position: fixed; inset: 0; display: none;
+  padding: 5.5vh 7vw 8vh; overflow: hidden;
+  background: var(--bg); color: var(--text);
+  animation: slidein .35s cubic-bezier(.22,.61,.36,1);
+}
+.slide.active { display: flex; flex-direction: column; justify-content: center; }
+@keyframes slidein { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.slide h1 { font-size: clamp(2rem, 5.2vw, 4rem); }
+.slide h2 { font-size: clamp(1.6rem, 3.8vw, 2.9rem); margin-bottom: .6em; }
+.slide h3 { font-size: clamp(1.1rem, 2vw, 1.5rem); }
+.slide p, .slide li { font-size: clamp(1rem, 1.7vw, 1.45rem); line-height: 1.5; }
+.slide .lead { font-size: clamp(1.2rem, 2.4vw, 1.9rem); color: var(--text-soft); }
+
+/* Slide chrome */
+.slide-kicker { font-size: clamp(.8rem,1.3vw,1rem); font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--brand); margin-bottom: .4em; }
+.slide-foot {
+  position: fixed; bottom: 0; left: 0; right: 0; height: 46px; padding: 0 7vw;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: .8rem; color: var(--text-mute); background: transparent; z-index: 5;
+}
+.slide-foot .sf-brand { font-weight: 700; color: var(--text-soft); }
+.progress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--fabi-green), var(--gold)); z-index: 10; transition: width .3s ease; }
+
+/* Section divider slides */
+.slide.section {
+  background: linear-gradient(125deg, var(--fabi-forest), var(--fabi-green) 60%, var(--aatf-green));
+  color: #fff;
+}
+.slide.section h1, .slide.section h2, .slide.section .slide-kicker { color: #fff; }
+.slide.section .slide-kicker { opacity: .85; }
+.slide.section .lead { color: rgba(255,255,255,.9); }
+
+/* Quote slides */
+.slide.quote { background: var(--aatf-navy); color: #fff; text-align: center; }
+.slide.quote blockquote { font-size: clamp(1.6rem, 4vw, 3rem); font-weight: 700; max-width: 20ch; margin: 0 auto; line-height: 1.25; }
+.slide.quote cite { display: block; margin-top: 1.5rem; font-size: 1.1rem; font-style: normal; color: var(--gold-bright); font-weight: 600; }
+
+/* Title slide */
+.slide.title { background: linear-gradient(140deg, var(--aatf-navy) 0%, var(--fabi-forest) 70%); color: #fff; }
+.slide.title h1 { color: #fff; }
+.slide.title .subtitle { font-size: clamp(1.1rem,2.2vw,1.6rem); color: rgba(255,255,255,.85); }
+
+/* On-slide components reuse theme cards but tuned for projection */
+.slide .card { padding: 20px 22px; }
+.slide .callout { font-size: clamp(.95rem,1.5vw,1.25rem); }
+.slide .prompt { font-size: clamp(.8rem,1.25vw,1.05rem); }
+.slide ul, .slide ol { margin: 0 0 1rem; padding-left: 1.3em; }
+.slide li { margin-bottom: .5em; }
+
+/* two-column split */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 3vw; align-items: center; }
+.split-40-60 { grid-template-columns: 2fr 3fr; }
+@media (max-width: 900px) { .split, .split-40-60 { grid-template-columns: 1fr; gap: 1.5rem; } }
+
+/* fragment reveal */
+.frag { opacity: .18; transition: opacity .3s ease; }
+.frag.shown { opacity: 1; }
+
+/* nav controls */
+.deck-nav { position: fixed; bottom: 10px; right: 16px; display: flex; gap: 8px; z-index: 11; }
+.deck-nav button {
+  width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border-strong);
+  background: var(--surface); color: var(--text); cursor: pointer; font-size: 1.1rem; box-shadow: var(--sh-1);
+}
+.deck-nav button:hover { border-color: var(--brand); color: var(--brand); }
+.slide-num { position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); font-size: .8rem; color: var(--text-mute); z-index: 11; }
+
+/* overview / grid mode */
+.help-hint { position: fixed; top: 12px; right: 16px; font-size: .72rem; color: var(--text-mute); z-index: 11; }
+
+/* big stat */
+.stat-row { display: flex; gap: 3vw; flex-wrap: wrap; }
+.stat { }
+.stat .big { font-size: clamp(2.5rem,6vw,4.5rem); font-weight: 800; color: var(--brand); line-height: 1; }
+.stat .lbl { color: var(--text-soft); font-size: clamp(.9rem,1.4vw,1.15rem); }
+
+/* escalation ladder */
+.ladder { display: grid; gap: 10px; }
+.rung { display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; padding: 14px 18px; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--border); }
+.rung .rnum { width: 38px; height: 38px; border-radius: 9px; background: var(--brand); color: #fff; font-weight: 800; display: grid; place-items: center; }
+.rung:nth-child(1) .rnum { background: var(--aatf-leaf); }
+.rung:nth-child(2) .rnum { background: var(--fabi-green); }
+.rung:nth-child(3) .rnum { background: var(--aatf-green); }
+.rung:nth-child(4) .rnum { background: var(--gold); }

@@ -1,0 +1,1716 @@
+<meta charset="UTF-8">
+<title>Claude Code &mdash; A Practical Guide for Scientists</title>
+<style>
+  :root {
+    --bg: #f8f6f2;
+    --bg-card: #ffffff;
+    --bg-code: #1e1e2e;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --text-muted: #7a7a9a;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --accent-secondary: #d97706;
+    --accent-secondary-light: #fef3c7;
+    --border: #e2e2ea;
+    --border-light: #f0f0f5;
+    --code-text: #c9d1d9;
+    --success: #059669;
+    --success-light: #d1fae5;
+    --warning: #d97706;
+    --warning-light: #fef3c7;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+    --radius: 8px;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'SF Mono', 'Cascadia Code', 'Fira Code', 'JetBrains Mono', Consolas, monospace;
+    --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #111118;
+      --bg-card: #1a1a24;
+      --text: #e4e4ee;
+      --text-secondary: #a0a0ba;
+      --text-muted: #6a6a8a;
+      --accent: #60a5fa;
+      --accent-light: #1e3a5f;
+      --accent-secondary: #fbbf24;
+      --accent-secondary-light: #3d2e0a;
+      --border: #2a2a3a;
+      --border-light: #222230;
+      --success: #34d399;
+      --success-light: #0a2e1f;
+      --warning: #fbbf24;
+      --warning-light: #3d2e0a;
+      --shadow: 0 1px 3px rgba(0,0,0,0.2);
+      --shadow-lg: 0 4px 12px rgba(0,0,0,0.3);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #111118;
+    --bg-card: #1a1a24;
+    --text: #e4e4ee;
+    --text-secondary: #a0a0ba;
+    --text-muted: #6a6a8a;
+    --accent: #60a5fa;
+    --accent-light: #1e3a5f;
+    --accent-secondary: #fbbf24;
+    --accent-secondary-light: #3d2e0a;
+    --border: #2a2a3a;
+    --border-light: #222230;
+    --success: #34d399;
+    --success-light: #0a2e1f;
+    --warning: #fbbf24;
+    --warning-light: #3d2e0a;
+    --shadow: 0 1px 3px rgba(0,0,0,0.2);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  :root[data-theme="light"] {
+    --bg: #f8f6f2;
+    --bg-card: #ffffff;
+    --text: #1a1a2e;
+    --text-secondary: #4a4a6a;
+    --text-muted: #7a7a9a;
+    --accent: #2563eb;
+    --accent-light: #dbeafe;
+    --accent-secondary: #d97706;
+    --accent-secondary-light: #fef3c7;
+    --border: #e2e2ea;
+    --border-light: #f0f0f5;
+    --success: #059669;
+    --success-light: #d1fae5;
+    --warning: #d97706;
+    --warning-light: #fef3c7;
+    --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow-lg: 0 4px 12px rgba(0,0,0,0.08);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  .hero {
+    padding: 80px 0 48px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 4px 14px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* Navigation */
+  .toc {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    box-shadow: var(--shadow);
+  }
+
+  .toc h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  .toc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 6px 24px;
+  }
+
+  .toc a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 14px;
+    transition: color 0.15s;
+    border-bottom: none;
+  }
+
+  .toc a:hover { color: var(--accent); }
+
+  .toc .toc-part {
+    font-weight: 600;
+    color: var(--text);
+    margin-top: 12px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .toc .toc-part:first-child { margin-top: 0; }
+
+  /* Sections */
+  .part-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  section {
+    margin-bottom: 56px;
+    scroll-margin-top: 24px;
+  }
+
+  section h2 {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  section h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 28px 0 12px;
+    color: var(--text);
+  }
+
+  p { margin-bottom: 14px; }
+  p + p { margin-top: 0; }
+
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
+  }
+  a:hover { border-bottom-color: var(--accent); }
+
+  /* Code blocks */
+  pre {
+    background: var(--bg-code);
+    color: var(--code-text);
+    padding: 18px 22px;
+    border-radius: var(--radius);
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin: 16px 0 20px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: var(--border-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent);
+  }
+
+  pre code {
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  .code-label {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+  /* Cards / callouts */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px 26px;
+    margin: 20px 0;
+    box-shadow: var(--shadow);
+  }
+
+  .card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .callout {
+    padding: 18px 22px;
+    border-radius: var(--radius);
+    margin: 20px 0;
+    border-left: 3px solid;
+    font-size: 0.95rem;
+  }
+
+  .callout-info {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--text);
+  }
+
+  .callout-tip {
+    background: var(--success-light);
+    border-color: var(--success);
+    color: var(--text);
+  }
+
+  .callout-warning {
+    background: var(--warning-light);
+    border-color: var(--warning);
+    color: var(--text);
+  }
+
+  .callout strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Collapsible */
+  details {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin: 16px 0;
+    box-shadow: var(--shadow);
+  }
+
+  summary {
+    padding: 16px 22px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    user-select: none;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text);
+  }
+
+  summary::-webkit-details-marker { display: none; }
+
+  summary::before {
+    content: '\25B6';
+    font-size: 10px;
+    transition: transform 0.2s;
+    color: var(--text-muted);
+  }
+
+  details[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  details > div {
+    padding: 0 22px 20px;
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 16px 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  th {
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    background: var(--border-light);
+  }
+
+  /* Lists */
+  ul, ol {
+    margin: 12px 0 16px 20px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  /* Dividers */
+  .divider {
+    border: 0;
+    height: 1px;
+    background: var(--border);
+    margin: 56px 0;
+  }
+
+  /* Key concept badges */
+  .concept {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    vertical-align: middle;
+  }
+
+  .concept-foundation { background: var(--accent-light); color: var(--accent); }
+  .concept-intermediate { background: var(--accent-secondary-light); color: var(--accent-secondary); }
+  .concept-advanced { background: var(--success-light); color: var(--success); }
+
+  /* Progress tracker */
+  .progress-bar {
+    display: flex;
+    gap: 3px;
+    margin: 32px 0;
+  }
+
+  .progress-segment {
+    height: 4px;
+    flex: 1;
+    border-radius: 2px;
+    background: var(--border);
+    transition: background 0.3s;
+  }
+
+  .progress-segment.active {
+    background: var(--accent);
+  }
+
+  /* Diagram styling */
+  .diagram {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    margin: 20px 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre;
+    overflow-x: auto;
+    color: var(--text-secondary);
+  }
+
+  /* Interactive tabs */
+  .tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 0;
+  }
+
+  .tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.15s;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: inherit;
+  }
+
+  .tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+
+  .tab:hover:not(.active) {
+    color: var(--text-secondary);
+  }
+
+  .tab-content {
+    display: none;
+    padding-top: 16px;
+  }
+
+  .tab-content.active { display: block; }
+
+  /* Footer */
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    margin-top: 64px;
+  }
+
+  /* Smooth scroll */
+  html { scroll-behavior: smooth; }
+
+  /* Print */
+  @media print {
+    .hero { padding: 20px 0; }
+    details { break-inside: avoid; }
+    details[open] > div { display: block !important; }
+    pre { white-space: pre-wrap; word-break: break-all; }
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 16px; }
+    .hero { padding: 48px 0 32px; }
+    .toc-grid { grid-template-columns: 1fr; }
+    pre { font-size: 12px; padding: 14px 16px; }
+  }
+</style>
+
+<div class="container">
+
+  <header class="hero">
+    <div class="hero-badge">Training Guide</div>
+    <h1>Claude Code for Scientists</h1>
+    <p>A practical guide to AI-assisted programming — from first principles to advanced automation. No prior AI experience required.</p>
+  </header>
+
+  <nav class="toc">
+    <h2>Contents</h2>
+    <div class="toc-grid">
+      <div>
+        <div class="toc-part">I. Foundations</div>
+        <a href="#what-is-claude-code">What is Claude Code?</a>
+        <a href="#mental-model">The Mental Model</a>
+        <a href="#prompting">Prompting Fundamentals</a>
+        <a href="#context">Context &amp; Memory</a>
+      </div>
+      <div>
+        <div class="toc-part">II. Core Features</div>
+        <a href="#tools">Tools &amp; Capabilities</a>
+        <a href="#init">Project Setup with /init</a>
+        <a href="#claude-md">CLAUDE.md Files</a>
+        <a href="#planning">Planning &amp; Reasoning</a>
+      </div>
+      <div>
+        <div class="toc-part">III. Automation</div>
+        <a href="#commands">Custom Commands</a>
+        <a href="#hooks">Hooks</a>
+        <a href="#loops">Loops</a>
+        <a href="#workflows">Workflows</a>
+      </div>
+      <div>
+        <div class="toc-part">IV. Integration</div>
+        <a href="#mcp">Model Context Protocol</a>
+        <a href="#scientific-workflows">Scientific Workflows</a>
+        <a href="#tips">Tips &amp; Best Practices</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================= -->
+  <!-- PART I: FOUNDATIONS                           -->
+  <!-- ============================================= -->
+
+  <div class="progress-bar">
+    <div class="progress-segment active"></div>
+    <div class="progress-segment"></div>
+    <div class="progress-segment"></div>
+    <div class="progress-segment"></div>
+  </div>
+
+  <span class="part-label">Part I — Foundations</span>
+
+  <section id="what-is-claude-code">
+    <h2>What is Claude Code?</h2>
+
+    <p>Claude Code is a command-line tool that brings an AI agent directly into your terminal. It can read your files, write code, run commands, search the web, and iterate on complex tasks — all through natural language conversation.</p>
+
+    <p>For scientists, this means you can describe a data analysis pipeline, a statistical test, a figure, or an entire processing workflow in plain English, and Claude Code will write the code, debug it, and run it for you.</p>
+
+    <div class="callout callout-info">
+      <strong>Key Insight</strong>
+      You don't need to be a programmer. Claude Code lets you leverage your domain expertise — the science — while it handles the implementation. You describe <em>what</em> you need; it figures out <em>how</em>.
+    </div>
+
+    <h3>How it differs from ChatGPT / web interfaces</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Web Chat (e.g. claude.ai)</th><th>Claude Code (CLI Agent)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>You copy-paste code snippets back and forth</td><td>It reads and writes your files directly</td></tr>
+          <tr><td>It can't see your project</td><td>It understands your full project structure</td></tr>
+          <tr><td>You run commands manually</td><td>It runs commands and reads the output</td></tr>
+          <tr><td>One-shot responses</td><td>Multi-step agent that iterates until done</td></tr>
+          <tr><td>No persistent memory of your project</td><td>Learns your project via CLAUDE.md</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Getting started</h3>
+    <p>Claude Code runs in your terminal. Navigate to your project directory and start it:</p>
+    <pre><code>cd ~/research/my-project
+claude</code></pre>
+    <p>That's it. You're now in an interactive session. Type what you need in natural language.</p>
+  </section>
+
+  <hr class="divider">
+
+  <section id="mental-model">
+    <h2>The Mental Model</h2>
+
+    <p>To use Claude Code effectively, it helps to understand what's happening behind the scenes. Think of it as a <strong>highly capable research assistant</strong> sitting at your terminal.</p>
+
+    <h3>What the model sees: the context window</h3>
+
+    <p>Claude operates with a <strong>context window</strong> — a fixed-size working memory that holds everything the model can "see" at once. This includes:</p>
+
+    <ul>
+      <li>Your conversation (every message you've sent and every response)</li>
+      <li>System instructions (CLAUDE.md files, tool definitions)</li>
+      <li>File contents it has read</li>
+      <li>Command outputs it has received</li>
+    </ul>
+
+    <div class="diagram">┌─────────────────────────────────────────┐
+│           Context Window (~200K tokens) │
+│                                         │
+│  ┌─────────────┐  ┌──────────────────┐  │
+│  │ System       │  │ Your conversation │  │
+│  │ instructions │  │ messages so far   │  │
+│  │ (CLAUDE.md)  │  │                  │  │
+│  └─────────────┘  └──────────────────┘  │
+│                                         │
+│  ┌─────────────┐  ┌──────────────────┐  │
+│  │ Tool         │  │ File contents    │  │
+│  │ definitions  │  │ + command output │  │
+│  └─────────────┘  └──────────────────┘  │
+│                                         │
+│  ← older content compacted/summarised → │
+└─────────────────────────────────────────┘</code></div>
+
+    <div class="callout callout-tip">
+      <strong>Practical implication</strong>
+      When your conversation gets very long, older context is automatically summarised (compacted) to make room. This means Claude may lose details from much earlier in the conversation. For long sessions, re-state important requirements rather than relying on something you said 50 messages ago.
+    </div>
+
+    <h3>How reasoning works</h3>
+
+    <p>Claude uses <strong>adaptive thinking</strong> — it automatically decides how much internal reasoning to apply based on task complexity. A simple question gets a quick answer. A complex debugging task triggers deeper chain-of-thought reasoning. You can influence this with the <strong>effort</strong> level.</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Effort</th><th>When to use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>low</code></td><td>Quick lookups, simple edits, straightforward questions</td></tr>
+          <tr><td><code>medium</code></td><td>Standard coding tasks, moderate analysis</td></tr>
+          <tr><td><code>high</code></td><td>Complex reasoning, debugging, architecture decisions</td></tr>
+          <tr><td><code>max</code></td><td>The hardest problems where correctness matters most</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="prompting">
+    <h2>Prompting Fundamentals</h2>
+
+    <p>The quality of results you get from Claude Code is directly proportional to the quality of your instructions. This isn't about "magic words" — it's about clear communication, the same skill you use when briefing a new lab member.</p>
+
+    <h3>The anatomy of a good prompt</h3>
+
+    <details>
+      <summary>1. State the goal, not just the task</summary>
+      <div>
+        <p>Instead of telling Claude <em>how</em> to do something step by step, describe <em>what</em> you want to achieve. Claude will figure out the steps.</p>
+        <div class="code-label">Less effective</div>
+        <pre><code>Open data.csv, read column 3, calculate the mean, then print it</code></pre>
+        <div class="code-label">More effective</div>
+        <pre><code>I have a CSV of experimental measurements. Calculate
+summary statistics (mean, SD, median, IQR) for the
+"concentration_nM" column and flag any outliers using
+the IQR method.</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>2. Provide context about your domain</summary>
+      <div>
+        <p>Claude is a generalist. If you're working in a specific field, a sentence of context helps it make better decisions:</p>
+        <pre><code>I'm analysing single-cell RNA-seq data from a mouse
+hippocampus experiment. The count matrix is in
+`counts.h5ad` (AnnData format). I need to:
+1. Filter cells with &lt;200 genes or &gt;5000 genes
+2. Normalise to 10,000 counts per cell
+3. Log-transform
+4. Find highly variable genes
+5. Run PCA and UMAP
+
+Use scanpy. Follow the standard preprocessing workflow
+from their tutorial.</code></pre>
+        <p>Notice how the domain context ("single-cell RNA-seq", "AnnData format", "scanpy") lets Claude choose the right libraries and conventions immediately.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>3. Show an example of what you want</summary>
+      <div>
+        <p>If the output format matters, show it:</p>
+        <pre><code>Parse each experiment log file in data/logs/ and create a
+summary table like:
+
+| Experiment | Date       | Samples | Success Rate |
+|------------|------------|---------|--------------|
+| EXP-001    | 2024-03-15 | 48      | 91.7%        |
+
+Save as results/summary.csv</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>4. Specify constraints and requirements</summary>
+      <div>
+        <p>Be explicit about requirements that matter to you:</p>
+        <pre><code>Analyse the dose-response data in experiment_results.csv
+
+Requirements:
+- Use a 4-parameter logistic (Hill equation) fit
+- Report EC50 with 95% confidence intervals
+- Generate a publication-quality figure (300 DPI,
+  single column width ~3.5 inches)
+- Use a colour-blind-friendly palette
+- Include R² and AIC for goodness of fit
+- Save figure as both PNG and SVG</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>5. Iterate — don't try to get it perfect in one shot</summary>
+      <div>
+        <p>Claude Code is conversational. Start with the core request, review what it produces, then refine:</p>
+        <pre><code># First message:
+Plot the time series data from sensor_readings.csv
+
+# After seeing the result:
+Good, but can you add error bands showing ±1 SD?
+Also make the x-axis labels every 6 hours instead of every hour.
+
+# Further refinement:
+Perfect. Now add a second panel below showing the
+rate of change (first derivative).</code></pre>
+      </div>
+    </details>
+
+    <div class="callout callout-warning">
+      <strong>Common pitfall</strong>
+      Avoid vague instructions like "make it better" or "clean this up." Be specific: "Reduce the x-axis label frequency to every 10th point" or "Add error bars showing standard error of the mean."
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="context">
+    <h2>Context &amp; Memory</h2>
+
+    <p>Understanding how Claude Code manages context helps you work more effectively in long sessions.</p>
+
+    <h3>The context window</h3>
+    <p>Claude has a 200K token context window (roughly 150,000 words). Everything — your conversation, file contents, tool outputs — shares this space. As you work, the window fills up.</p>
+
+    <h3>What happens when context gets full</h3>
+    <p>Claude Code automatically <strong>compacts</strong> older context. It summarises earlier parts of the conversation to make room for new work. This is seamless — you don't need to manage it — but it means very old details may be compressed.</p>
+
+    <h3>Practical strategies</h3>
+    <ul>
+      <li><strong>Start fresh for unrelated tasks.</strong> If you're switching from data cleaning to writing a manuscript, start a new session. Context from the old task is just noise.</li>
+      <li><strong>Re-state important details.</strong> If you're 50 messages deep and need Claude to remember a specific constraint, say it again.</li>
+      <li><strong>Use CLAUDE.md</strong> (covered next) to persist project-level context that should survive across sessions.</li>
+      <li><strong>Keep file reads targeted.</strong> Asking Claude to read a 10,000-line file when you only need lines 50–100 wastes context. Say "read lines 50–100 of results.csv".</li>
+    </ul>
+
+    <h3>Memory across sessions</h3>
+    <p>Each Claude Code session starts fresh — it doesn't automatically remember past conversations. To carry knowledge forward:</p>
+    <ol>
+      <li><strong>CLAUDE.md files</strong> — project instructions loaded every session</li>
+      <li><strong>/init</strong> — auto-generates CLAUDE.md by scanning your project</li>
+      <li><strong>Memory tool</strong> — Claude can save notes to files for future reference</li>
+    </ol>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PART II: CORE FEATURES                        -->
+  <!-- ============================================= -->
+
+  <hr class="divider">
+
+  <div class="progress-bar">
+    <div class="progress-segment active"></div>
+    <div class="progress-segment active"></div>
+    <div class="progress-segment"></div>
+    <div class="progress-segment"></div>
+  </div>
+
+  <span class="part-label">Part II — Core Features</span>
+
+  <section id="tools">
+    <h2>Tools &amp; Capabilities</h2>
+
+    <p>Claude Code isn't just a chatbot — it has <strong>tools</strong>: actions it can take in your environment. Understanding what tools are available helps you know what to ask for.</p>
+
+    <h3>Built-in tools</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Tool</th><th>What it does</th><th>Example use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Read</strong></td><td>Read files, images, PDFs, notebooks</td><td>"Read the first 50 lines of data.csv"</td></tr>
+          <tr><td><strong>Write</strong></td><td>Create new files</td><td>"Write a Python script to process the data"</td></tr>
+          <tr><td><strong>Edit</strong></td><td>Modify existing files precisely</td><td>"Fix the bug on line 42 of analysis.py"</td></tr>
+          <tr><td><strong>Bash</strong></td><td>Run shell commands</td><td>"Run the test suite" / "List all CSV files"</td></tr>
+          <tr><td><strong>Grep</strong></td><td>Search across files</td><td>"Find where `calculate_rmsd` is defined"</td></tr>
+          <tr><td><strong>Glob</strong></td><td>Find files by pattern</td><td>"Find all .py files in src/"</td></tr>
+          <tr><td><strong>Web Search</strong></td><td>Search the internet</td><td>"What's the latest API for BioPython?"</td></tr>
+          <tr><td><strong>Web Fetch</strong></td><td>Retrieve a web page</td><td>"Fetch the docs for pandas.DataFrame.melt"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout callout-tip">
+      <strong>Science tip</strong>
+      Claude can read images (plots, micrographs, gel images) and PDFs (papers, manuals). Try: "Read figure_1.png and describe what you see" or "Read protocol.pdf and summarise the key steps."
+    </div>
+
+    <h3>What Claude Code can do for your research</h3>
+    <details>
+      <summary>Data processing &amp; cleaning</summary>
+      <div>
+        <ul>
+          <li>Parse instrument output files (CSV, TSV, custom formats)</li>
+          <li>Merge datasets from multiple experiments</li>
+          <li>Handle missing values, outlier detection, normalisation</li>
+          <li>Convert between formats (Excel to CSV, JSON to DataFrame)</li>
+          <li>Batch-process hundreds of files with consistent logic</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Statistical analysis</summary>
+      <div>
+        <ul>
+          <li>Descriptive statistics, hypothesis testing (t-tests, ANOVA, chi-squared)</li>
+          <li>Regression modelling (linear, logistic, mixed-effects)</li>
+          <li>Survival analysis, time-series decomposition</li>
+          <li>Bayesian analysis with PyMC or Stan</li>
+          <li>Power analysis and sample size calculations</li>
+          <li>Multiple comparison corrections (Bonferroni, FDR)</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Visualisation</summary>
+      <div>
+        <ul>
+          <li>Publication-quality figures (matplotlib, seaborn, plotly)</li>
+          <li>Heatmaps, volcano plots, PCA biplots, phylogenetic trees</li>
+          <li>Multi-panel figures with consistent styling</li>
+          <li>Interactive dashboards for exploration</li>
+          <li>Animations of time-series or simulation data</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>Automation &amp; pipelines</summary>
+      <div>
+        <ul>
+          <li>Write Snakemake or Nextflow pipelines</li>
+          <li>Create Makefiles for reproducible analysis</li>
+          <li>Build CLI tools with argparse</li>
+          <li>Set up automated quality checks</li>
+          <li>Generate reports from data (Jupyter notebooks, LaTeX)</li>
+        </ul>
+      </div>
+    </details>
+  </section>
+
+  <hr class="divider">
+
+  <section id="init">
+    <h2>Project Setup with <code>/init</code></h2>
+
+    <p>When you open Claude Code in a project directory for the first time, the <code>/init</code> command scans your project and generates a <code>CLAUDE.md</code> file — a set of instructions that tells Claude about your project.</p>
+
+    <pre><code># In your project directory:
+claude
+# Then type:
+/init</code></pre>
+
+    <p>Claude will examine your project structure, languages, dependencies, and conventions, then create a <code>CLAUDE.md</code> file at the project root.</p>
+
+    <h3>What <code>/init</code> discovers</h3>
+    <ul>
+      <li>Programming languages and frameworks in use</li>
+      <li>Project structure (source directories, test directories, config)</li>
+      <li>Build and test commands</li>
+      <li>Code style conventions</li>
+      <li>Key dependencies</li>
+    </ul>
+
+    <div class="callout callout-info">
+      <strong>When to use <code>/init</code></strong>
+      Run it once when you start using Claude Code with a project. You don't need to run it again — just edit the generated <code>CLAUDE.md</code> to refine it over time.
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="claude-md">
+    <h2>CLAUDE.md — Your Project's Instructions</h2>
+
+    <p><code>CLAUDE.md</code> is the single most important file for Claude Code productivity. It's a Markdown file that Claude reads at the start of every session, giving it persistent knowledge about your project.</p>
+
+    <h3>Where CLAUDE.md files live</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Location</th><th>Scope</th><th>Use case</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>~/.claude/CLAUDE.md</code></td><td>All projects</td><td>Personal preferences, general coding style</td></tr>
+          <tr><td><code>./CLAUDE.md</code></td><td>This project</td><td>Project-specific instructions (commit to repo)</td></tr>
+          <tr><td><code>./.claude/CLAUDE.md</code></td><td>This project, personal</td><td>Your personal notes for this project (gitignore)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>What to put in your CLAUDE.md</h3>
+
+    <details>
+      <summary>Example: A data analysis project</summary>
+      <div>
+        <pre><code># Project: Cortisol Circadian Rhythm Study
+
+## Overview
+Analysis of salivary cortisol measurements from 120
+participants over 48 hours. Goal: characterise individual
+variation in circadian cortisol patterns.
+
+## Data
+- Raw data: `data/raw/` (DO NOT modify these files)
+- Processed: `data/processed/`
+- Results: `results/`
+- Figures: `figures/`
+
+## Environment
+- Python 3.11 with conda env "cortisol"
+- Activate: `conda activate cortisol`
+- Key packages: pandas, scipy, statsmodels, matplotlib,
+  seaborn, cosinor (circadian analysis)
+
+## Conventions
+- Use pathlib for file paths, never string concatenation
+- All figures: 300 DPI, PDF + PNG, colour-blind safe
+- Statistical tests: always report effect size + CI
+- Use ISO 8601 date format (YYYY-MM-DD)
+
+## Running analysis
+```
+conda activate cortisol
+python src/01_preprocess.py
+python src/02_fit_cosinor.py
+python src/03_generate_figures.py
+```
+
+## Important notes
+- Participant IDs are pseudonymised. Never include
+  real names in code, comments, or output.
+- Time zone is SAST (UTC+2). All timestamps in raw
+  data are local time.</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Example: A bioinformatics pipeline</summary>
+      <div>
+        <pre><code># Metagenomics Assembly Pipeline
+
+## Quick reference
+- Build: `snakemake --cores 8`
+- Test: `pytest tests/`
+- Lint: `ruff check src/`
+
+## Architecture
+Snakemake pipeline with rules in `workflow/rules/`.
+Config in `config/config.yaml`.
+
+Input: paired-end FASTQ files in `data/raw/`
+Output: assembled contigs + annotations in `results/`
+
+## Coding standards
+- Type hints on all function signatures
+- Docstrings in NumPy format
+- Tests for any function that transforms data
+- Log to stderr, results to stdout</code></pre>
+      </div>
+    </details>
+
+    <div class="callout callout-tip">
+      <strong>Pro tip</strong>
+      Keep CLAUDE.md concise. It's loaded into every session's context window — a 50-page document wastes space. Focus on what Claude needs to know to work effectively: project structure, conventions, and the "gotchas" a new team member would trip over.
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="planning">
+    <h2>Planning &amp; Reasoning</h2>
+
+    <p>For complex tasks, Claude Code can create and follow a plan — breaking work into steps, tracking progress, and adapting when things change.</p>
+
+    <h3>When to ask for a plan</h3>
+    <p>Simple tasks ("add a y-axis label to the plot") don't need a plan. Complex tasks do:</p>
+
+    <pre><code>I need to refactor our data pipeline. Currently it's a
+single 800-line script. I want to break it into:
+1. Data loading and validation
+2. Preprocessing and QC
+3. Analysis
+4. Figure generation
+5. Report generation
+
+Please plan this refactoring before making any changes.
+Let me review the plan first.</code></pre>
+
+    <p>Claude will create a structured plan, listing which functions move where, what interfaces change, and what order to make the changes. You can review and adjust before it starts.</p>
+
+    <h3>The <code>/think</code> command</h3>
+    <p>For the hardest problems, you can explicitly ask for deeper reasoning:</p>
+    <pre><code># Forces thorough reasoning before acting
+/think Why is my mixed-effects model failing to converge?
+The data is in patient_data.csv and the model code is
+in src/mixed_model.py</code></pre>
+
+    <div class="callout callout-info">
+      <strong>Scientific rigour note</strong>
+      Claude's reasoning is a tool, not an oracle. Always verify statistical results independently. Claude is excellent at writing correct code, but like any tool, the interpretation and validation of results is your responsibility as the scientist.
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PART III: AUTOMATION                          -->
+  <!-- ============================================= -->
+
+  <hr class="divider">
+
+  <div class="progress-bar">
+    <div class="progress-segment active"></div>
+    <div class="progress-segment active"></div>
+    <div class="progress-segment active"></div>
+    <div class="progress-segment"></div>
+  </div>
+
+  <span class="part-label">Part III — Automation</span>
+
+  <section id="commands">
+    <h2>Custom Commands</h2>
+    <span class="concept concept-intermediate">Intermediate</span>
+
+    <p>Custom commands (also called <strong>slash commands</strong>) let you create reusable prompts. If you find yourself typing the same kind of request repeatedly, turn it into a command.</p>
+
+    <h3>Creating a command</h3>
+    <p>Commands live in <code>.claude/commands/</code> as Markdown files. The filename becomes the command name.</p>
+
+    <div class="code-label">.claude/commands/qc-check.md</div>
+    <pre><code>Run quality control checks on the dataset at $ARGUMENTS:
+
+1. Check for missing values and report counts per column
+2. Verify all numeric columns have plausible ranges
+3. Check for duplicate rows
+4. Validate date formats are consistent
+5. Summarise findings in a table
+
+Flag any issues that need attention before analysis.</code></pre>
+
+    <p>Now you can run:</p>
+    <pre><code>/qc-check data/experiment_042.csv</code></pre>
+
+    <p>The <code>$ARGUMENTS</code> placeholder is replaced with whatever you type after the command name.</p>
+
+    <details>
+      <summary>More command examples for scientists</summary>
+      <div>
+        <div class="code-label">.claude/commands/figure.md</div>
+        <pre><code>Create a publication-quality figure from the data described below.
+
+Requirements:
+- 300 DPI, single-column width (3.5 inches)
+- Font: Arial, 8pt for labels, 9pt for axis titles
+- Colour-blind-friendly palette (use seaborn's "colorblind")
+- Save as both PNG and SVG in figures/
+- Include proper axis labels with units
+
+Data/description: $ARGUMENTS</code></pre>
+
+        <div class="code-label">.claude/commands/stats-report.md</div>
+        <pre><code>Perform a statistical analysis on $ARGUMENTS.
+
+For each comparison:
+1. Check normality (Shapiro-Wilk) and homogeneity of variance
+2. Choose appropriate test (parametric vs non-parametric)
+3. Report: test statistic, p-value, effect size, 95% CI
+4. Apply multiple comparison correction if >2 groups
+5. Summarise results in a formatted table
+
+Write the analysis script and save the results table.</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <hr class="divider">
+
+  <section id="hooks">
+    <h2>Hooks</h2>
+    <span class="concept concept-intermediate">Intermediate</span>
+
+    <p>Hooks are automated actions that run in response to specific events during a Claude Code session. They're shell commands that fire before or after Claude takes an action.</p>
+
+    <h3>How hooks work</h3>
+    <div class="diagram">You ask Claude to edit a file
+        │
+        ▼
+  ┌──────────┐
+  │ PreEdit  │ ← Hook fires BEFORE the edit
+  │  Hook    │   (e.g., create a backup)
+  └────┬─────┘
+       │
+       ▼
+  Claude makes the edit
+       │
+       ▼
+  ┌──────────┐
+  │ PostEdit │ ← Hook fires AFTER the edit
+  │  Hook    │   (e.g., run linter, run tests)
+  └──────────┘</div>
+
+    <h3>Configuring hooks</h3>
+    <p>Hooks are configured in <code>.claude/settings.json</code>:</p>
+    <pre><code>{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit",
+        "command": "cp \"$CLAUDE_FILE_PATH\" \"$CLAUDE_FILE_PATH.bak\""
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "command": "python -m py_compile \"$CLAUDE_FILE_PATH\" 2>&1 || true"
+      }
+    ]
+  }
+}</code></pre>
+
+    <h3>Practical hook examples for research</h3>
+    <ul>
+      <li><strong>Auto-lint:</strong> Run <code>ruff check</code> after any Python file is edited</li>
+      <li><strong>Auto-test:</strong> Run relevant tests after code changes</li>
+      <li><strong>Data protection:</strong> Prevent edits to raw data files</li>
+      <li><strong>Notebook sync:</strong> Auto-convert <code>.py</code> to <code>.ipynb</code> after editing</li>
+    </ul>
+
+    <div class="callout callout-warning">
+      <strong>A note on data integrity</strong>
+      Consider using hooks to protect your raw data. A hook that rejects edits to files in <code>data/raw/</code> prevents accidental modification of original measurements — a basic but important safeguard for reproducibility.
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="loops">
+    <h2>Loops — Recurring Autonomous Tasks</h2>
+    <span class="concept concept-advanced">Advanced</span>
+
+    <p>The <code>/loop</code> command tells Claude Code to repeat a task at intervals or until a condition is met. This is powerful for autonomous workflows.</p>
+
+    <h3>Use cases</h3>
+
+    <details>
+      <summary>Watch and fix: continuous test monitoring</summary>
+      <div>
+        <pre><code>/loop Run the test suite. If any tests fail, read the
+failing test and the relevant source code, diagnose
+the issue, and fix it. Keep going until all tests pass.</code></pre>
+        <p>Claude will run tests, find failures, fix the code, re-run tests, and iterate until everything passes.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Batch processing with monitoring</summary>
+      <div>
+        <pre><code>/loop Check data/incoming/ for new CSV files. For each
+new file: validate the format, run the preprocessing
+pipeline, and move it to data/processed/. Log any
+errors to processing_log.txt.</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Code review loop</summary>
+      <div>
+        <pre><code>/loop Review each Python file in src/ for:
+1. Missing type hints
+2. Functions without docstrings
+3. Potential bugs or edge cases
+
+Fix each issue as you find it. Move to the next file
+when the current one is clean.</code></pre>
+      </div>
+    </details>
+
+    <div class="callout callout-info">
+      <strong>How loops work internally</strong>
+      <code>/loop</code> repeatedly runs your prompt in a new turn, checking progress each time. Claude decides when the task is complete. You can interrupt at any time with Ctrl+C.
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="workflows">
+    <h2>Multi-Agent Workflows</h2>
+    <span class="concept concept-advanced">Advanced</span>
+
+    <p>For very large tasks, Claude Code can orchestrate <strong>multiple agents working in parallel</strong>. Each agent is an independent Claude instance with its own context window, working on a sub-task. A coordinator script controls what runs, in what order, and how results are combined.</p>
+
+    <p>Think of it like delegating to a team of research assistants: one reviews your statistical methods, another checks your data cleaning logic, a third audits your figures &mdash; all simultaneously. When they're done, their findings are merged into a single report.</p>
+
+    <h3>When to use workflows</h3>
+    <p>Workflows shine when a task can be decomposed into independent sub-tasks:</p>
+    <ul>
+      <li><strong>Parallel review:</strong> Reviewing a large codebase across multiple dimensions (bugs, style, performance, security) at the same time</li>
+      <li><strong>Batch processing:</strong> Applying the same transformation to many files or datasets in parallel</li>
+      <li><strong>Multi-angle research:</strong> Investigating a topic from multiple perspectives simultaneously</li>
+      <li><strong>Large migrations:</strong> Updating dozens of files with a consistent change pattern</li>
+      <li><strong>Adversarial verification:</strong> Having independent agents try to <em>refute</em> each other's findings to filter out false positives</li>
+    </ul>
+
+    <div class="callout callout-info">
+      <strong>Single agent vs. workflow</strong>
+      For most day-to-day scientific tasks, a single Claude Code session is sufficient and preferred. Workflows are for tasks that are too large for one context window or where parallelism provides a real speedup. Don't reach for a workflow when a simple prompt will do.
+    </div>
+
+    <h3>How it works</h3>
+    <p>A workflow is a <strong>JavaScript script</strong> that defines the orchestration logic. You write it (or ask Claude to write it), and Claude Code executes it, spawning agents as needed. The key building blocks are:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Primitive</th><th>What it does</th><th>Analogy</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>agent(prompt)</code></td><td>Spawn a single sub-agent with a task</td><td>Asking one research assistant to do something</td></tr>
+          <tr><td><code>parallel([...tasks])</code></td><td>Run multiple agents concurrently, wait for all to finish</td><td>Handing out tasks to the whole team at once</td></tr>
+          <tr><td><code>pipeline(items, stage1, stage2, ...)</code></td><td>Process items through sequential stages, but each item flows independently</td><td>An assembly line &mdash; item A can be in stage 3 while item B is still in stage 1</td></tr>
+          <tr><td><code>phase(title)</code></td><td>Label a section of work for progress tracking</td><td>Naming a chapter of your experiment</td></tr>
+          <tr><td><code>log(message)</code></td><td>Show a progress message to the user</td><td>Status update to your PI</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Architecture</h3>
+    <div class="diagram">                ┌─────────────┐
+                │ Coordinator │
+                │  (script)   │
+                └──────┬──────┘
+           ┌───────────┼───────────┐
+           ▼           ▼           ▼
+    ┌────────────┐ ┌────────┐ ┌────────────┐
+    │ Agent 1:   │ │Agent 2:│ │ Agent 3:   │
+    │ Review for │ │Review  │ │ Review for │
+    │ bugs       │ │style   │ │ performance│
+    └─────┬──────┘ └───┬────┘ └─────┬──────┘
+          │            │            │
+          └────────────┼────────────┘
+                       ▼
+              ┌───────────────┐
+              │  Coordinator  │
+              │  merges &amp;     │
+              │  verifies     │
+              └───────────────┘</div>
+
+    <h3>Example: a simple workflow script</h3>
+    <p>This workflow audits a data analysis pipeline from three angles simultaneously:</p>
+    <pre><code>export const meta = {
+  name: 'audit-analysis',
+  description: 'Audit data pipeline from 3 angles',
+  phases: [
+    { title: 'Audit', detail: 'Run parallel reviews' },
+    { title: 'Synthesise', detail: 'Combine findings' },
+  ],
+}
+
+phase('Audit')
+const results = await parallel([
+  () => agent(`Review src/ for statistical errors:
+    incorrect test assumptions, wrong distributions,
+    missing multiple-comparison corrections.`),
+
+  () => agent(`Review src/ for data handling bugs:
+    off-by-one errors, incorrect merges, lost NaN
+    values, silent type coercions.`),
+
+  () => agent(`Review src/ for reproducibility issues:
+    hardcoded paths, missing random seeds, unstated
+    dependencies, non-deterministic operations.`),
+])
+
+phase('Synthesise')
+const summary = await agent(`Here are findings from
+three independent reviewers:
+
+${results.filter(Boolean).join('\n---\n')}
+
+Deduplicate, rank by severity, and produce a final
+report with actionable recommendations.`)
+
+return summary</code></pre>
+
+    <details>
+      <summary>Example: batch-process datasets with a pipeline</summary>
+      <div>
+        <p>This workflow processes multiple experiment files through a two-stage pipeline. Each file flows independently &mdash; fast files finish early without waiting for slow ones:</p>
+        <pre><code>export const meta = {
+  name: 'batch-qc',
+  description: 'QC and summarise experiment files',
+  phases: [
+    { title: 'QC', detail: 'Quality check each file' },
+    { title: 'Summarise', detail: 'Generate reports' },
+  ],
+}
+
+const files = [
+  'data/experiment_01.csv',
+  'data/experiment_02.csv',
+  'data/experiment_03.csv',
+  'data/experiment_04.csv',
+]
+
+const reports = await pipeline(
+  files,
+  // Stage 1: QC each file
+  (file) => agent(
+    `Run quality control on ${file}:
+     check for missing values, outliers (IQR method),
+     and format consistency. Return a JSON summary.`,
+    { label: `qc:${file}`, phase: 'QC' }
+  ),
+  // Stage 2: Generate a summary report
+  (qcResult, file) => agent(
+    `Based on QC results for ${file}:
+     ${JSON.stringify(qcResult)}
+     Write a one-paragraph summary of data quality
+     and any issues that need attention.`,
+    { label: `report:${file}`, phase: 'Summarise' }
+  ),
+)
+
+return reports</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Example: adversarial verification of findings</summary>
+      <div>
+        <p>This pattern uses independent "skeptic" agents to refute findings, keeping only those that survive scrutiny &mdash; a computational analogue of peer review:</p>
+        <pre><code>// After an initial agent finds potential issues...
+const findings = initialResult.issues
+
+// Each finding gets 3 independent skeptics
+const verified = await pipeline(
+  findings,
+  async (finding) => {
+    const votes = await parallel([
+      () => agent(`Try to REFUTE this claim:
+        "${finding.description}"
+        Check the actual code. Default to
+        refuted=true if uncertain.`),
+      () => agent(`Try to REFUTE this claim:
+        "${finding.description}"
+        Look for counterexamples.`),
+      () => agent(`Try to REFUTE this claim:
+        "${finding.description}"
+        Verify assumptions are wrong.`),
+    ])
+    const dominated = votes.filter(Boolean)
+      .filter(v => v.includes('refuted')).length
+    return dominated < 2 ? finding : null
+  }
+)
+
+// Only findings that survived 2/3 skeptics remain
+return verified.filter(Boolean)</code></pre>
+      </div>
+    </details>
+
+    <h3>How to trigger workflows</h3>
+    <ul>
+      <li><strong>Ask explicitly:</strong> "Use a workflow to review all the Python files in src/"</li>
+      <li><strong>Use the keyword <code>ultracode</code></strong> in your prompt to signal that you want comprehensive multi-agent orchestration</li>
+      <li><strong>Saved workflows:</strong> Store reusable workflow scripts in <code>.claude/workflows/</code> and invoke them by name</li>
+    </ul>
+
+    <div class="callout callout-tip">
+      <strong>Science use case</strong>
+      Workflows are particularly powerful for meta-analyses or systematic reviews: spawn agents to independently extract data from different papers, then a synthesis agent merges and cross-checks the extractions. The adversarial verification pattern helps catch extraction errors the same way a second reviewer would.
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- PART IV: INTEGRATION                          -->
+  <!-- ============================================= -->
+
+  <hr class="divider">
+
+  <div class="progress-bar">
+    <div class="progress-segment active"></div>
+    <div class="progress-segment active"></div>
+    <div class="progress-segment active"></div>
+    <div class="progress-segment active"></div>
+  </div>
+
+  <span class="part-label">Part IV — Integration &amp; Practice</span>
+
+  <section id="mcp">
+    <h2>Model Context Protocol (MCP)</h2>
+    <span class="concept concept-advanced">Advanced</span>
+
+    <p>MCP is a standard protocol that lets Claude Code connect to external services and data sources. Think of it as "plugins" for Claude Code.</p>
+
+    <h3>What MCP servers do</h3>
+    <p>An MCP server gives Claude access to tools and data that go beyond local files and shell commands:</p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>MCP Server</th><th>What it enables</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>GitHub</td><td>Create issues, pull requests, review code</td></tr>
+          <tr><td>Database</td><td>Query PostgreSQL, SQLite, etc. directly</td></tr>
+          <tr><td>Slack / Teams</td><td>Send messages, read channels</td></tr>
+          <tr><td>File system</td><td>Access files on remote servers</td></tr>
+          <tr><td>Custom</td><td>Any tool you build with the MCP standard</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Configuring MCP servers</h3>
+    <p>MCP servers are configured in your Claude Code settings. Here's a conceptual example connecting to a local PostgreSQL database:</p>
+    <pre><code># In .claude/settings.json:
+{
+  "mcpServers": {
+    "lab-database": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-postgres",
+        "postgresql://localhost/lab_results"
+      ]
+    }
+  }
+}</code></pre>
+
+    <p>Once connected, you can ask Claude naturally:</p>
+    <pre><code>Query the lab_results database for all experiments
+from the last month where yield > 80%. Show me the
+top 10 by yield with their conditions.</code></pre>
+
+    <div class="callout callout-info">
+      <strong>For your team</strong>
+      MCP is an open standard. If your lab or institute has specific databases, instruments, or services, someone can build an MCP server for them, giving Claude Code direct access. This is where significant productivity gains come from in scientific settings.
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="scientific-workflows">
+    <h2>Putting It Together: Scientific Workflows</h2>
+
+    <p>Here are complete examples of how to use Claude Code for common scientific tasks. These show how the concepts from earlier sections combine in practice.</p>
+
+    <details open>
+      <summary>Workflow 1: Exploratory data analysis</summary>
+      <div>
+        <pre><code># Start Claude Code in your project
+claude
+
+# 1. Initial exploration
+> I have a new dataset in data/measurements.csv from our
+> plate reader experiment. Please:
+> - Read the first few rows and describe the structure
+> - Calculate summary statistics for all numeric columns
+> - Check for missing values and outliers
+> - Create an overview figure with distributions of key
+>   variables
+
+# 2. After reviewing the initial output
+> The "fluorescence" column has some negative values that
+> shouldn't be possible. Filter those out and also remove
+> any rows where "temperature" is outside 20-40°C. Save
+> the cleaned data to data/measurements_clean.csv
+
+# 3. Deep analysis
+> Now fit a linear mixed-effects model:
+> fluorescence ~ concentration * temperature + (1|plate_id)
+> Check model assumptions and report the results.
+
+# 4. Publication figure
+> /figure Create a 2-panel figure:
+> Panel A: scatter plot of fluorescence vs concentration,
+>   coloured by temperature, with the model fit line
+> Panel B: residuals plot from the mixed model</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Workflow 2: Batch file processing</summary>
+      <div>
+        <pre><code># Process multiple instrument output files
+> I have 48 mass spec output files in data/raw_spectra/
+> (*.mzML format). For each file:
+> 1. Extract the base peak chromatogram
+> 2. Find peaks using the CentWave algorithm
+> 3. Calculate peak areas for the target compounds
+>    listed in config/target_compounds.csv
+> 4. Write results to a single summary table
+>
+> Use pyOpenMS. Process files in parallel where possible.
+> Save the summary to results/compound_quantification.csv</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Workflow 3: Reproducible analysis pipeline</summary>
+      <div>
+        <pre><code># Build a complete pipeline
+> Help me create a reproducible analysis pipeline for
+> our RNA-seq experiment. I need:
+>
+> 1. A Snakemake workflow that goes from FASTQ to
+>    differential expression results
+> 2. A conda environment.yml with all dependencies
+> 3. A README explaining how to run everything
+> 4. Quality control reports at each step
+>
+> The samples are defined in config/samples.tsv.
+> Reference genome is GRCh38.
+> We're comparing treatment vs control (3 replicates each).
+>
+> Start by planning the pipeline architecture, then
+> build it step by step.</code></pre>
+      </div>
+    </details>
+
+    <details>
+      <summary>Workflow 4: Literature-informed analysis</summary>
+      <div>
+        <pre><code># Combining web search with analysis
+> I need to implement the statistical method described in
+> Smith et al. 2023 (DOI: 10.1234/example) for analysing
+> our dose-response data.
+>
+> 1. Search for the paper and find the method description
+> 2. Implement it in Python
+> 3. Apply it to our data in data/dose_response.csv
+> 4. Compare results with the standard 4PL approach
+> 5. Write up the comparison as a methods section draft</code></pre>
+      </div>
+    </details>
+  </section>
+
+  <hr class="divider">
+
+  <section id="tips">
+    <h2>Tips &amp; Best Practices</h2>
+
+    <h3>For maximum effectiveness</h3>
+
+    <div class="card">
+      <h4>1. Be specific about your scientific context</h4>
+      <p>Don't just say "analyse this data." Say "this is time-series qPCR data with Ct values. I need delta-delta-Ct normalisation against GAPDH."</p>
+    </div>
+
+    <div class="card">
+      <h4>2. Verify computational results</h4>
+      <p>Claude writes code that runs correctly, but always verify key results. Spot-check a few data points manually. Compare with known results from established software. This is the same standard you'd apply to any new tool in the lab.</p>
+    </div>
+
+    <div class="card">
+      <h4>3. Build up your CLAUDE.md over time</h4>
+      <p>Every time Claude asks a question you've already answered before, add that information to CLAUDE.md. Over time, it becomes a comprehensive guide that makes every session more productive.</p>
+    </div>
+
+    <div class="card">
+      <h4>4. Use version control</h4>
+      <p>Always work in a git repository. Claude Code respects git — it won't force-push or make destructive changes without asking. If something goes wrong, you can always revert: <code>git checkout -- .</code></p>
+    </div>
+
+    <div class="card">
+      <h4>5. Start simple, add complexity</h4>
+      <p>Don't try to build an entire pipeline in one prompt. Start with the core analysis, verify it works, then layer on visualisations, error handling, and automation.</p>
+    </div>
+
+    <div class="card">
+      <h4>6. Save good prompts as commands</h4>
+      <p>If you write a prompt that works well, save it as a <code>.claude/commands/</code> file. Build up a library of reusable commands for your common tasks.</p>
+    </div>
+
+    <h3>Common mistakes to avoid</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Mistake</th><th>Better approach</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dumping an entire dataset and saying "analyse this"</td><td>Describe what you're looking for and what the data represents</td></tr>
+          <tr><td>Not checking intermediate results</td><td>Review outputs at each stage before proceeding</td></tr>
+          <tr><td>Ignoring error messages</td><td>Paste the error message and ask Claude to debug it</td></tr>
+          <tr><td>Writing CLAUDE.md once and never updating it</td><td>Treat it as a living document — update as your project evolves</td></tr>
+          <tr><td>Working without version control</td><td>Always use git. <code>git init</code> takes 2 seconds.</td></tr>
+          <tr><td>Asking for "the best" approach</td><td>Describe your constraints: speed, accuracy, simplicity, publication requirements</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Quick reference: useful slash commands</h3>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Command</th><th>What it does</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>/init</code></td><td>Generate a CLAUDE.md for your project</td></tr>
+          <tr><td><code>/think</code></td><td>Deep reasoning mode for hard problems</td></tr>
+          <tr><td><code>/loop</code></td><td>Repeat a task until done</td></tr>
+          <tr><td><code>/clear</code></td><td>Clear conversation context</td></tr>
+          <tr><td><code>/help</code></td><td>Show available commands</td></tr>
+          <tr><td><code>/your-command</code></td><td>Run any custom command you've created</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section>
+    <h2>Getting Help</h2>
+    <p>Claude Code is a tool — the more you use it, the better you get at directing it. Start with small tasks, build confidence, then tackle larger workflows.</p>
+    <ul>
+      <li>Type <code>/help</code> in Claude Code for built-in documentation</li>
+      <li>Report issues: <a href="https://github.com/anthropics/claude-code/issues">github.com/anthropics/claude-code/issues</a></li>
+      <li>The best way to learn is to bring a real problem from your research and work through it</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>Claude Code Training Guide &mdash; Prepared for scientific researchers<br>
+    Content accurate as of July 2026</p>
+  </footer>
+
+</div>
+
+<script>
+  // Tab functionality
+  document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const group = tab.closest('.tab-group');
+      group.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+      group.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+      tab.classList.add('active');
+      group.querySelector(`#${tab.dataset.target}`).classList.add('active');
+    });
+  });
+
+  // Smooth scroll for TOC links
+  document.querySelectorAll('.toc a').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
