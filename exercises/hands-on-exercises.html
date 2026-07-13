@@ -65,6 +65,7 @@
         <a href="#ex2">2. Adding context (files &amp; paste)</a>
         <a href="#ex3">3. The four-part prompt</a>
         <a href="#ex4">4. Iterating</a>
+        <a href="#practice-setup">Before you start: settings &amp; your track</a>
         <a href="#ex5">5. Web search &amp; Deep Research</a>
         <a href="#ex6">6. Projects</a>
         <a href="#ex7">7. Connectors</a>
@@ -211,13 +212,26 @@ TEXT:
   <!-- PART B -->
   <!-- ============================================================= -->
   <div class="part-head">
-    <div class="kicker">Part B</div>
+    <div class="kicker">Part B · Practice hour</div>
     <h2>Reach for more</h2>
-    <p class="muted" style="margin:0;">Beyond a single chat: pull in the live web, save context, and connect your files.</p>
+    <p class="muted" style="margin:0;">Beyond a single chat: pull in the live web, save context, and connect your files. This is your hour — work at your own pace through Exercises 5–11.</p>
   </div>
 
+  <!-- Practice hour setup -->
+  <section id="practice-setup" style="margin-top:1.25rem;">
+    <div class="callout callout-warn">
+      <div class="callout-title">⚙ First, check your account settings (once)</div>
+      <p>In claude.ai, open <strong>Settings → Privacy</strong>. Confirm the setting that controls whether your conversations can be used to train models, and note the stated retention period. A facilitator will walk the room through this together before you start — ask if you're unsure what you're looking at.</p>
+    </div>
+    <div class="callout callout-info" style="margin-top:1rem">
+      <div class="callout-title">Then choose your track for Exercises 5–11</div>
+      <p><strong>Track A — the demo pack.</strong> Fictional AATF materials, already loaded. Zero setup, always safe.</p>
+      <p><strong>Track B — a real file from your own desk.</strong> Now that your settings are checked, you can use it for anything <strong>green</strong> (public/published, your own non-sensitive text) or <strong>amber</strong> (internal drafts, partner material — de-identify where you can). Personal, HR, medical, confidential donor/legal, or unpublished-IP material stays off-limits regardless of settings — that's a legal-basis question, not a settings question. If you're unsure which colour your file is, ask a facilitator or default to Track A. The full traffic light is covered at 12:15 — this is the short version so you can start now.</p>
+    </div>
+  </section>
+
   <!-- Exercise 5 -->
-  <section class="card" id="ex5">
+  <section class="card" id="ex5" style="margin-top:20px;">
     <div class="ex-head">
       <span class="ex-num">5</span>
       <h3>Web search &amp; Deep Research</h3>
@@ -254,7 +268,7 @@ TEXT:
       <li>In the project's custom instructions, paste the note below so every chat behaves consistently.</li>
       <li>Start a chat <em>inside the project</em> and try the drafting prompt. Notice you didn't have to re-explain who AATF is.</li>
     </ol>
-    <div class="prompt"><strong>Project instructions:</strong> You help AATF staff draft donor concept notes. Always use the About-AATF boilerplate and the style guide in this project. Prefer plain English, active voice, and UK spelling. When facts are missing, ask me rather than inventing them.</div>
+    <div class="prompt"><strong>Project instructions:</strong> You help AATF staff draft donor concept notes. Always use the About-AATF boilerplate and the style guide in this project. Prefer plain English, active voice, and UK spelling. When facts are missing, ask me rather than inventing them. Before stating any citation, statistic, or quote as fact, verify it against a source in this project or ask me for one — never present an unverified claim as fact.</div>
     <div class="prompt">Draft a 1-page concept note for a project on <span class="ph">[TOPIC, e.g. scaling PBR cowpea in Nigeria and Ghana]</span>. Use our standard structure: problem, approach, expected impact, budget headline.</div>
     <div class="callout callout-tip">
       <div class="callout-title">What good looks like</div>
@@ -305,7 +319,7 @@ TEXT:
     </div>
     <p class="learn">You'll learn: Cowork works across your files and hands back real deliverables you can steer live.</p>
     <ol class="steps">
-      <li>Open <strong>Cowork</strong> and point it at the workshop <em>sample folder</em> (or your own folder) containing a long report.</li>
+      <li>Open <strong>Cowork</strong> and point it at the workshop <em>sample folder</em> (Track A) or your own folder of real files (Track B) containing a long report.</li>
       <li>Run the first prompt to get a one-page summary. Read it.</li>
       <li>Run the second prompt to turn a key figure into a chart.</li>
       <li>Steer it live with the third prompt — watch it redo the work in French without starting over.</li>
@@ -352,7 +366,7 @@ TEXT:
     </div>
     <p class="learn">You'll learn: to get trustworthy numbers by making Claude compute in a spreadsheet and show its working.</p>
     <ol class="steps">
-      <li>Open the mock <strong>M&amp;E / pipeline spreadsheet</strong> provided (or one of your own with no sensitive data).</li>
+      <li>Open the mock <strong>M&amp;E / pipeline spreadsheet</strong> provided (Track A), or one of your own with no sensitive data (Track B).</li>
       <li>Run the analysis prompt. The key instruction: it must <strong>calculate in a spreadsheet</strong>, not do arithmetic in its head.</li>
       <li>Open the resulting file and check a formula or two yourself.</li>
     </ol>
@@ -387,7 +401,7 @@ TEXT:
       <p>Don't worry if this feels like a step too far today — it's here so you know it exists. Everything above already covers most daily work. Come back to this when you're curious.</p>
     </div>
     <ol class="steps">
-      <li>With a facilitator, open the <strong>terminal</strong> and start Claude Code in a folder of sample data files (never real sensitive data for a first try).</li>
+      <li>With a facilitator, open the <strong>terminal</strong> and start Claude Code in a folder of sample data files (Track A), or a low-risk folder of your own (Track B) — never real sensitive data for a first try.</li>
       <li>Ask it, in plain English, to tidy the folder — it will propose steps and ask before changing anything.</li>
       <li>Try a light quality check on a CSV. Read what it reports back.</li>
       <li>Notice it explains each action; you stay in control and approve changes.</li>
