@@ -20,7 +20,6 @@ Everything is self-contained static HTML — it also works fully offline. Just o
 | [`slides/`](slides/index.html) | The full-day slide deck (keyboard/touch nav, light + dark themes). |
 | [`exercises/prompt-library.html`](exercises/prompt-library.html) | Copy-ready prompts for every AATF function + printable prompt cards. |
 | [`exercises/hands-on-exercises.html`](exercises/hands-on-exercises.html) | Step-by-step exercises up the escalation ladder. |
-| [`facilitator-guide.html`](facilitator-guide.html) | How to run the day; the four live builds scripted. |
 | [`demo-assets/`](demo-assets/README.html) | **Fictional** AATF demo materials for live demos. |
 | [`resources/`](resources/) | Deeper reading: a Claude Code guide for scientists, and the *Programming With Intelligence* talk. |
 | [`assets/`](assets/) | The shared design system (theme, deck framework, navigation). |
