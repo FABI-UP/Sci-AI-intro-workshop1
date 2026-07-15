@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AATF AI Prompt Library</title>
+<title>AI Prompt Library — Working with AI as a Research Assistant</title>
 <link rel="stylesheet" href="../assets/theme.css">
 <style>
   /* Page-specific layout tweaks — reuse theme variables only */
@@ -39,9 +39,9 @@
 <!-- ===== MASTHEAD ===== -->
 <header class="masthead">
   <div class="container ph-masthead">
-    <div class="brandmark"><span class="logo">A×F</span> AATF × FABI · AI Workshop</div>
+    <div class="brandmark"><span class="logo">AI</span> FABI · Working with AI as a Research Assistant</div>
     <h1>AI Prompt Library</h1>
-    <p class="sub">A working reference for African agricultural scientists · Claude · July 2026</p>
+    <p class="sub">A working reference for biologists and postgraduate researchers · Claude · [DATE]</p>
   </div>
 </header>
 
@@ -52,19 +52,19 @@
   <h3>The anatomy of a good prompt</h3>
   <p>Nearly every strong prompt has four parts. Keep them in this order and you rarely go wrong:</p>
   <div class="grid grid-2" style="gap:14px;margin:1rem 0 .5rem;">
-    <div class="card" style="padding:16px 18px;"><span class="chip chip-gold">ROLE</span><p class="soft" style="margin:.5rem 0 0;">Who the AI should be. <em>"You are a grants officer…"</em></p></div>
-    <div class="card" style="padding:16px 18px;"><span class="chip chip-gold">TASK</span><p class="soft" style="margin:.5rem 0 0;">The one thing to do. <em>"Draft a two-page concept note."</em></p></div>
-    <div class="card" style="padding:16px 18px;"><span class="chip chip-gold">CONTEXT</span><p class="soft" style="margin:.5rem 0 0;">The facts it needs. <em>"For TELA Maize in Nigeria; donor is…"</em></p></div>
+    <div class="card" style="padding:16px 18px;"><span class="chip chip-gold">ROLE</span><p class="soft" style="margin:.5rem 0 0;">Who the AI should be. <em>"You are a research communicator…"</em></p></div>
+    <div class="card" style="padding:16px 18px;"><span class="chip chip-gold">TASK</span><p class="soft" style="margin:.5rem 0 0;">The one thing to do. <em>"Draft a methods section paragraph."</em></p></div>
+    <div class="card" style="padding:16px 18px;"><span class="chip chip-gold">CONTEXT</span><p class="soft" style="margin:.5rem 0 0;">The facts it needs. <em>"For a greenhouse trial; treatment vs control…"</em></p></div>
     <div class="card" style="padding:16px 18px;"><span class="chip chip-gold">FORMAT</span><p class="soft" style="margin:.5rem 0 0;">Shape of the answer. <em>"Bullet points, under 300 words."</em></p></div>
   </div>
 
   <div class="whenuse">The universal template — start here when nothing else fits</div>
-  <div class="prompt">You are <span class="ph">[ROLE, e.g. AN AATF GRANTS OFFICER]</span>.
+  <div class="prompt">You are <span class="ph">[ROLE, e.g. A RESEARCH COMMUNICATOR]</span>.
 
 Your task: <span class="ph">[THE ONE THING YOU WANT DONE]</span>.
 
 Context you need to know:
-- <span class="ph">[FACT 1 — project, crop, country]</span>
+- <span class="ph">[FACT 1 — study system, question, or dataset]</span>
 - <span class="ph">[FACT 2 — audience, deadline, constraint]</span>
 - <span class="ph">[FACT 3 — anything else that matters]</span>
 
@@ -77,8 +77,8 @@ If anything is unclear, ask me before you start.</div>
     <p style="margin-top:.4rem;">
       <span class="chip chip-plain">Make it shorter</span>
       <span class="chip chip-plain">Make it more formal</span>
-      <span class="chip chip-plain">Now in French</span>
-      <span class="chip chip-plain">Explain it for a non-scientist</span>
+      <span class="chip chip-plain">Now for a lay audience</span>
+      <span class="chip chip-plain">Explain it for a non-specialist</span>
       <span class="chip chip-plain">Ask me 5 questions first, then redraft</span>
     </p>
   </div>
@@ -91,13 +91,13 @@ If anything is unclear, ask me before you start.</div>
     <!-- Sticky table of contents -->
     <aside class="ph-toc no-print">
       <nav>
-        <div class="toc-head">Jump to a function</div>
+        <div class="toc-head">Jump to a task type</div>
         <ol>
-          <li><a href="#fn-rmsu">Resource Mobilization &amp; Sustainability</a></li>
-          <li><a href="#fn-comms">Communications, Advocacy &amp; Partnerships</a></li>
-          <li><a href="#fn-research">Research &amp; Product Development</a></li>
-          <li><a href="#fn-reg">Regulatory, Deployment &amp; Commercialization</a></li>
-          <li><a href="#fn-pm">Project Management, M&amp;E &amp; Operations</a></li>
+          <li><a href="#fn-grants">Grants &amp; Manuscripts</a></li>
+          <li><a href="#fn-comms">Communication &amp; Outreach</a></li>
+          <li><a href="#fn-lit">Literature &amp; Synthesis</a></li>
+          <li><a href="#fn-protocols">Protocols, Ethics &amp; Reproducibility</a></li>
+          <li><a href="#fn-pm">Project Management, Data &amp; Reporting</a></li>
           <li><a href="#fn-km">Knowledge Management &amp; Productivity</a></li>
           <li><a href="#cards">Pocket prompt cards</a></li>
         </ol>
@@ -107,118 +107,118 @@ If anything is unclear, ask me before you start.</div>
     <!-- Content column -->
     <main class="stack">
 
-      <!-- 1. RMSU -->
-      <section class="fn" id="fn-rmsu">
-        <h2><span class="sec-num">1</span> Resource Mobilization &amp; Sustainability</h2>
-        <p class="muted">Concept notes, donor-tailored language, donor intelligence, budgets and pipeline summaries. Always verify donor facts before they leave the building.</p>
+      <!-- 1. Grants & Manuscripts -->
+      <section class="fn" id="fn-grants">
+        <h2><span class="sec-num">1</span> Grants &amp; Manuscripts</h2>
+        <p class="muted">Concept notes, reviewer-tailored language, funder intelligence, budget narratives and pipeline summaries. Always verify funder facts before they leave your desk.</p>
 
         <div class="whenuse">Turn a rough idea into a fundable two-page concept note</div>
-        <div class="prompt">You are a resource-mobilization officer at AATF.
-Draft a 2-page concept note for <span class="ph">[PROJECT, e.g. SCALING PBR COWPEA IN NORTHERN NIGERIA]</span>.
-Context: the problem is <span class="ph">[PROBLEM]</span>, our solution is <span class="ph">[SOLUTION]</span>,
-the target donor is <span class="ph">[DONOR]</span> whose priorities are <span class="ph">[PRIORITIES]</span>.
-Use this structure: Problem · Our Approach · Expected Results · Budget Summary · Why AATF.
+        <div class="prompt">You are a research grant writer.
+Draft a 2-page concept note for <span class="ph">[PROJECT, e.g. A MULTI-SITE TRIAL OF A BIOCONTROL SEED TREATMENT]</span>.
+Context: the problem is <span class="ph">[PROBLEM]</span>, our approach is <span class="ph">[APPROACH]</span>,
+the target funder is <span class="ph">[FUNDER]</span> whose priorities are <span class="ph">[PRIORITIES]</span>.
+Use this structure: Problem · Our Approach · Expected Results · Budget Summary · Why Us.
 Keep it plain, evidence-led and under 900 words. Flag anywhere I still need to insert a real figure.</div>
 
-        <div class="whenuse">Re-tailor the same project boilerplate for a specific donor's language</div>
+        <div class="whenuse">Re-tailor the same project description for a specific funder's language</div>
         <div class="prompt">Here is our standard project description:
 <span class="ph">[PASTE BOILERPLATE]</span>
-Rewrite it to match the priorities and vocabulary of <span class="ph">[DONOR]</span>,
+Rewrite it to match the priorities and vocabulary of <span class="ph">[FUNDER]</span>,
 who funds <span class="ph">[THEIR FOCUS AREAS]</span>. Keep every fact identical —
 change only framing and emphasis. Show the tailored version, then a short bullet list
 of what you changed and why.</div>
 
-        <div class="whenuse">Build a first-pass donor profile — then check it hard</div>
-        <div class="prompt">Act as a donor-intelligence analyst.
-Give me a briefing on <span class="ph">[DONOR / FOUNDATION]</span> for an agricultural-biotech proposal:
-funding priorities, typical grant size, geographies, application cycle and recent African ag grants.
+        <div class="whenuse">Build a first-pass funder profile — then check it hard</div>
+        <div class="prompt">Act as a funding-intelligence analyst.
+Give me a briefing on <span class="ph">[FUNDER / FOUNDATION]</span> for a research proposal:
+funding priorities, typical grant size, eligible geographies, application cycle and recent related awards.
 At the end, add a section titled "FACTS I MUST INDEPENDENTLY VERIFY" listing every claim,
 number and date you are not fully certain about.</div>
-        <div class="callout callout-warn"><div class="callout-title">Verify donor facts</div><p>AI can be confidently wrong about grant sizes, deadlines and past awards. Treat the profile as a research lead, never as the source of truth. Confirm on the donor's own website.</p></div>
+        <div class="callout callout-warn"><div class="callout-title">Verify funder facts</div><p>AI can be confidently wrong about grant sizes, deadlines and past awards. Treat the profile as a research lead, never as the source of truth. Confirm on the funder's own website.</p></div>
 
-        <div class="whenuse">Explain a budget so a non-finance reviewer understands it</div>
+        <div class="whenuse">Explain a budget so a non-specialist reviewer understands it</div>
         <div class="prompt">You are a grants-budget writer.
 Here is our budget table: <span class="ph">[PASTE FIGURES OR ATTACH]</span>.
-Write a clear budget narrative that justifies each major line for <span class="ph">[DONOR]</span>.
-Explain what each cost buys and how it links to results. Do not change any number.
+Write a clear budget narrative that justifies each major line for <span class="ph">[FUNDER]</span>.
+Explain what each cost buys and how it links to the research plan. Do not change any number.
 If a line looks unusually high or low, flag it for me instead of guessing a justification.</div>
 
-        <div class="whenuse">Summarise the funding pipeline for a board or leadership update</div>
-        <div class="prompt">Summarise this pipeline data into a board-ready update:
-<span class="ph">[PASTE PIPELINE / STATUS LIST]</span>.
-Give me: total value in the pipeline, split by stage (prospect / submitted / awarded),
-the 3 biggest opportunities, and 2 risks. One short paragraph plus a table.
-Mark anything where the data is incomplete as "TBC" — do not fill gaps with assumptions.</div>
+        <div class="whenuse">Draft a reviewer-response letter</div>
+        <div class="prompt">Here are the reviewer comments on our manuscript: <span class="ph">[PASTE COMMENTS]</span>.
+For each comment, draft: (1) a short, respectful acknowledgement, (2) a plain-language summary
+of how we responded, (3) a pointer to where the change is in the manuscript.
+Do not concede a point that isn't actually correct — flag any comment where you think we should push back,
+rather than agreeing by default.</div>
       </section>
 
       <!-- 2. Comms -->
       <section class="fn" id="fn-comms">
-        <h2><span class="sec-num">2</span> Communications, Advocacy &amp; Partnerships</h2>
-        <p class="muted">Press releases, multi-audience messaging, speeches, policy briefs and EN⇄FR translation for West Africa.</p>
+        <h2><span class="sec-num">2</span> Communication &amp; Outreach</h2>
+        <p class="muted">Press releases, multi-audience messaging, talks, policy-relevant briefs and plain-language translation for non-specialists.</p>
 
         <div class="whenuse">Draft a press release from a handful of facts</div>
-        <div class="prompt">You are AATF's communications officer.
-Write a press release announcing <span class="ph">[MILESTONE, e.g. TELA MAIZE VARIETY RELEASED IN KENYA]</span>.
+        <div class="prompt">You are a research communications officer.
+Write a press release announcing <span class="ph">[MILESTONE, e.g. A NEW FINDING ON DISEASE RESISTANCE]</span>.
 Facts: <span class="ph">[WHO / WHAT / WHERE / WHEN / WHY IT MATTERS]</span>.
-Include a headline, dateline, two quote placeholders (one AATF, one partner), and boilerplate.
+Include a headline, dateline, two quote placeholders (one researcher, one partner), and boilerplate.
 Newswire style, ~400 words. Leave <span class="ph">[QUOTE]</span> brackets where I must add real quotes.</div>
 
-        <div class="whenuse">Say one message three ways for three audiences</div>
-        <div class="prompt">Take this core message: <span class="ph">[e.g. PBR COWPEA CUTS PESTICIDE SPRAYS AND RAISES YIELDS]</span>.
+        <div class="whenuse">Say one finding three ways for three audiences</div>
+        <div class="prompt">Take this core finding: <span class="ph">[e.g. THE TREATMENT REDUCED DISEASE SEVERITY BY A THIRD]</span>.
 Write three versions of it:
-1. A LinkedIn post for partners and funders (professional, 1 short paragraph + a stat).
-2. A message for smallholder farmers (simple, concrete, benefit-first, no jargon).
-3. A briefing line for a Minister of Agriculture (policy impact, national relevance).
+1. A LinkedIn post for peers and collaborators (professional, 1 short paragraph + a stat).
+2. A message for a general/lay audience (simple, concrete, benefit-first, no jargon).
+3. A briefing line for a policymaker or funder (why it matters, relevance to their priorities).
 Keep the facts identical across all three.</div>
 
-        <div class="whenuse">Draft speaking notes for a leader at an event</div>
-        <div class="prompt">Write a 3-minute speech for <span class="ph">[SPEAKER & ROLE]</span> to open <span class="ph">[EVENT]</span>.
+        <div class="whenuse">Draft speaking notes for a talk or symposium opening</div>
+        <div class="prompt">Write a 3-minute talk opening for <span class="ph">[SPEAKER & ROLE]</span> to introduce <span class="ph">[TOPIC / SESSION]</span>.
 Themes to hit: <span class="ph">[2–3 KEY POINTS]</span>. Audience: <span class="ph">[WHO IS IN THE ROOM]</span>.
 Warm and confident, spoken-word rhythm (short sentences), one memorable closing line.
 Mark [PAUSE] where the speaker should slow down.</div>
 
-        <div class="whenuse">Structure a policy brief that decision-makers actually read</div>
-        <div class="prompt">You are a policy analyst.
-Draft a 2-page policy brief on <span class="ph">[ISSUE, e.g. HARMONISING BIOSAFETY RULES FOR STRIGA-CONTROL TECH IN ECOWAS]</span>.
+        <div class="whenuse">Structure a policy-relevant brief that decision-makers actually read</div>
+        <div class="prompt">You are a science-policy analyst.
+Draft a 2-page brief on <span class="ph">[ISSUE, e.g. IMPLICATIONS OF THIS FINDING FOR EXTENSION ADVICE]</span>.
 Use exactly this structure: Issue · Evidence · Options · Recommendation.
 Keep evidence tied to sources I will supply — do not invent statistics.
 Neutral, decision-focused tone. End with a one-sentence call to action.</div>
 
-        <div class="whenuse">Translate between English and French and flag the tricky calls</div>
-        <div class="prompt">Translate the following from <span class="ph">[ENGLISH]</span> to <span class="ph">[FRENCH]</span>
-for a West African audience (target country: <span class="ph">[e.g. BURKINA FASO]</span>):
+        <div class="whenuse">Translate jargon into plain language, and flag the tricky calls</div>
+        <div class="prompt">Rewrite the following for a non-specialist reader with no background in
+<span class="ph">[FIELD, e.g. PLANT PATHOLOGY]</span>:
 <span class="ph">[PASTE TEXT]</span>
-Keep technical agricultural terms accurate. After the translation, add a short list titled
-"JUDGEMENT CALLS" flagging any term or phrase where you had to choose between options,
-so a native speaker can confirm.</div>
+Keep every claim accurate — simplify the language, not the substance. After the rewrite, add a
+short list titled "SIMPLIFICATIONS I MADE" flagging any nuance you dropped, so I can check
+whether it still matters for this audience.</div>
       </section>
 
-      <!-- 3. Research -->
-      <section class="fn" id="fn-research">
-        <h2><span class="sec-num">3</span> Research &amp; Product Development</h2>
-        <p class="muted">Summarise papers for mixed audiences, compare trial reports, explain concepts, and tidy messy notes — without letting the AI overstate or invent.</p>
+      <!-- 3. Literature & Synthesis -->
+      <section class="fn" id="fn-lit">
+        <h2><span class="sec-num">3</span> Literature &amp; Synthesis</h2>
+        <p class="muted">Summarise papers for mixed audiences, compare studies, explain concepts, and tidy messy notes — without letting the AI overstate or invent.</p>
 
         <div class="whenuse">Summarise a technical paper for a mixed audience</div>
-        <div class="prompt">Summarise this paper for a mixed audience of scientists and non-scientists:
+        <div class="prompt">Summarise this paper for a mixed audience of specialists and non-specialists:
 <span class="ph">[PASTE ABSTRACT / TEXT OR ATTACH]</span>.
 Give me: (1) a one-line takeaway, (2) key findings in 4 bullets, (3) what it means for
-<span class="ph">[e.g. TELA MAIZE DEPLOYMENT]</span>, (4) limitations.
+<span class="ph">[e.g. OUR OWN STUDY SYSTEM]</span>, (4) limitations.
 Do not overstate certainty — where the authors hedge, you hedge too.</div>
 
-        <div class="whenuse">Compare several trial or field reports side by side</div>
-        <div class="prompt">Compare these trial reports and put the results in one table:
-<span class="ph">[PASTE / ATTACH REPORTS]</span>.
-Columns: site · season · variety · yield · pest/disease pressure · key observation.
+        <div class="whenuse">Compare several studies or trial reports side by side</div>
+        <div class="prompt">Compare these studies and put the results in one table:
+<span class="ph">[PASTE / ATTACH PAPERS OR REPORTS]</span>.
+Columns: study · system · method · key result · sample size · key caveat.
 After the table, note where methods differ enough that direct comparison is unfair.
-Use only numbers present in the reports — leave a cell blank if a value is missing.</div>
+Use only numbers present in the sources — leave a cell blank if a value is missing.</div>
 
         <div class="whenuse">Explain a hard concept with one clean analogy</div>
-        <div class="prompt">Explain <span class="ph">[CONCEPT, e.g. HOW Bt INSECT RESISTANCE WORKS IN TELA MAIZE]</span>
-to <span class="ph">[AUDIENCE, e.g. OUR BOARD MEMBERS WHO ARE NOT SCIENTISTS]</span>.
+        <div class="prompt">Explain <span class="ph">[CONCEPT, e.g. HOW INDUCED SYSTEMIC RESISTANCE WORKS]</span>
+to <span class="ph">[AUDIENCE, e.g. A FIRST-YEAR HONOURS STUDENT]</span>.
 Use one clear everyday analogy — just one, carried all the way through.
 Under 200 words. No jargon unless you define it in the same sentence.</div>
 
-        <div class="whenuse">Turn messy field notes into a clean structure</div>
+        <div class="whenuse">Turn messy field or lab notes into a clean structure</div>
         <div class="prompt">Organise these rough notes into a clean structure:
 <span class="ph">[PASTE MESSY NOTES]</span>.
 Group related points under clear headings and fix grammar.
@@ -231,44 +231,44 @@ if something is unclear or missing, list it under "NEEDS CLARIFICATION" instead 
         </div>
       </section>
 
-      <!-- 4. Regulatory -->
-      <section class="fn" id="fn-reg">
-        <h2><span class="sec-num">4</span> Regulatory, Deployment &amp; Commercialization</h2>
-        <p class="muted">Biosafety comparisons, submission checklists, first-draft legal documents and market scans — always marked as drafts for expert review.</p>
+      <!-- 4. Protocols, Ethics & Reproducibility -->
+      <section class="fn" id="fn-protocols">
+        <h2><span class="sec-num">4</span> Protocols, Ethics &amp; Reproducibility</h2>
+        <p class="muted">Comparing requirements across institutions, submission checklists, first-draft agreements and method landscape scans — always marked as drafts for expert review.</p>
 
-        <div class="whenuse">Compare regulatory requirements across countries</div>
-        <div class="prompt">Compare the biosafety approval requirements for <span class="ph">[PRODUCT, e.g. A GM MAIZE EVENT]</span>
-across <span class="ph">[COUNTRY A]</span>, <span class="ph">[COUNTRY B]</span> and <span class="ph">[COUNTRY C]</span>.
-Table format: authority · key data required · typical timeline · public-consultation step.
-End with a list titled "CONFIRM WITH A LOCAL REGULATORY EXPERT" for every point that may
-be out of date or country-specific. Do not present timelines as guarantees.</div>
+        <div class="whenuse">Compare ethics or biosafety requirements across institutions</div>
+        <div class="prompt">Compare the ethics/biosafety approval requirements for <span class="ph">[STUDY TYPE, e.g. A FIELD TRIAL INVOLVING A GM VARIETY]</span>
+across <span class="ph">[INSTITUTION/COUNTRY A]</span>, <span class="ph">[B]</span> and <span class="ph">[C]</span>.
+Table format: committee/authority · key documents required · typical timeline · public-consultation step.
+End with a list titled "CONFIRM WITH YOUR ETHICS/BIOSAFETY OFFICE" for every point that may
+be out of date or institution-specific. Do not present timelines as guarantees.</div>
 
         <div class="whenuse">Build a submission checklist so nothing is missed</div>
-        <div class="prompt">You are a regulatory-affairs officer.
-Create a submission checklist for <span class="ph">[APPLICATION TYPE, e.g. CONFINED FIELD TRIAL PERMIT]</span>
-in <span class="ph">[COUNTRY]</span>. List every document, form and annex typically required,
+        <div class="prompt">You are a research-compliance officer.
+Create a submission checklist for <span class="ph">[APPLICATION TYPE, e.g. AN ETHICS APPLICATION FOR HUMAN/ANIMAL WORK]</span>
+at <span class="ph">[INSTITUTION]</span>. List every document, form and annex typically required,
 grouped by category, with a checkbox for each. Add a final row: "verified against current
-regulator guidance on [DATE] by [NAME]".</div>
+guidance on [DATE] by [NAME]".</div>
 
-        <div class="whenuse">Get a first draft of a term sheet or MoU to react to</div>
-        <div class="prompt">Draft a first-draft <span class="ph">[TERM SHEET / MoU]</span> between AATF and <span class="ph">[PARTNER]</span>
-for <span class="ph">[PURPOSE, e.g. LICENSING CASSAVA PLANTING MATERIAL]</span>.
-Cover: parties, purpose, roles, IP, term, and termination.
+        <div class="whenuse">Get a first draft of a data-sharing agreement or MTA to react to</div>
+        <div class="prompt">Draft a first-draft <span class="ph">[DATA-SHARING AGREEMENT / MATERIAL TRANSFER AGREEMENT]</span> between our lab and <span class="ph">[PARTNER]</span>
+for <span class="ph">[PURPOSE, e.g. SHARING SEQUENCE DATA FROM A JOINT TRIAL]</span>.
+Cover: parties, purpose, permitted use, attribution, term, and what happens at project end.
 At the very top add, in bold: "UNREVIEWED DRAFT — FOR INTERNAL DISCUSSION AND LEGAL REVIEW ONLY."
-Use plain language and mark anything commercially sensitive as <span class="ph">[TO BE NEGOTIATED]</span>.</div>
+Use plain language and mark anything to be negotiated as <span class="ph">[TO BE NEGOTIATED]</span>.</div>
 
-        <div class="whenuse">Scan a market or potential partner landscape</div>
-        <div class="prompt">Act as a commercialization analyst.
-Give me a market scan for <span class="ph">[PRODUCT / CROP]</span> in <span class="ph">[COUNTRY / REGION]</span>:
-demand drivers, key players, seed-system channels, and likely partners.
+        <div class="whenuse">Scan the landscape of methods or tools for a task</div>
+        <div class="prompt">Act as a methods analyst.
+Give me a landscape scan of tools/methods for <span class="ph">[TASK, e.g. AMPLICON DENOISING]</span>
+as used in <span class="ph">[FIELD / SYSTEM]</span>: main options, typical use case, and known limitations.
 Be explicit about what you don't know — put uncertain or unverifiable points under
 "LOW CONFIDENCE — VERIFY" rather than stating them as fact.</div>
       </section>
 
-      <!-- 5. PM / M&E -->
+      <!-- 5. PM / Data / Reporting -->
       <section class="fn" id="fn-pm">
-        <h2><span class="sec-num">5</span> Project Management, M&amp;E, Reporting &amp; Operations</h2>
-        <p class="muted">Meeting minutes, donor reports, first-pass analysis and status updates — with owners, dates and reasoning you can actually check.</p>
+        <h2><span class="sec-num">5</span> Project Management, Data &amp; Reporting</h2>
+        <p class="muted">Meeting minutes, progress-report sections, first-pass analysis and status updates — with owners, dates and reasoning you can actually check.</p>
 
         <div class="whenuse">Turn a meeting transcript into minutes, decisions and actions</div>
         <div class="prompt">From this meeting transcript, produce three things:
@@ -276,11 +276,12 @@ Be explicit about what you don't know — put uncertain or unverifiable points u
 1. Concise minutes (key discussion points).
 2. A list of decisions made.
 3. An action table: Action · Owner · Due date.
-Do not invent owners or dates — if the transcript does not say who or when, write "TBC".</div>
+Do not invent owners or dates — if the transcript does not say who or when, write "TBC".
+Keep any caveats raised (e.g. "this result is preliminary") attached to the relevant action, not dropped.</div>
 
-        <div class="whenuse">Draft a donor report section from your data</div>
-        <div class="prompt">You are an M&amp;E officer.
-Write the "Progress Against Targets" section of a donor report for <span class="ph">[PROJECT]</span>
+        <div class="whenuse">Draft a progress-report section from your data</div>
+        <div class="prompt">You are a research assistant helping with reporting.
+Write the "Progress Against Plan" section of a progress report for <span class="ph">[PROJECT]</span>
 using this data: <span class="ph">[PASTE INDICATORS / RESULTS]</span>.
 For each indicator: target, actual, and a one-line explanation of variance.
 Use only the figures provided. Flag any indicator with missing data as "data pending".</div>
@@ -296,14 +297,14 @@ Do not treat correlation as cause. This is a first look, not a final analysis.</
         <div class="prompt">Turn these rough updates into a weekly status report for <span class="ph">[PROJECT / TEAM]</span>:
 <span class="ph">[PASTE BULLETS]</span>.
 Sections: Done this week · In progress · Blockers · Next week.
-Keep it tight — a manager should read it in under a minute. Flag blockers clearly.</div>
+Keep it tight — a supervisor should read it in under a minute. Flag blockers clearly.</div>
 
         <div class="whenuse">Standardise reports that everyone formats differently</div>
-        <div class="prompt">Here are field reports from three teams in different formats:
+        <div class="prompt">Here are field reports from three sites in different formats:
 <span class="ph">[PASTE / ATTACH]</span>.
 Rewrite all of them into this single standard template:
 <span class="ph">[PASTE YOUR TEMPLATE HEADINGS]</span>.
-Preserve every fact and figure exactly. Where a team omitted a required field, write "Not reported".</div>
+Preserve every fact and figure exactly. Where a site omitted a required field, write "Not reported".</div>
       </section>
 
       <!-- 6. KM / Productivity -->
@@ -324,10 +325,10 @@ Give me two versions: (A) warm and relationship-first, (B) brief and direct.
 Keep both under 150 words with a clear subject line and one specific ask.</div>
 
         <div class="whenuse">Create onboarding FAQs from your own material</div>
-        <div class="prompt">Using this material, write an onboarding FAQ for a new <span class="ph">[ROLE, e.g. PROJECT OFFICER]</span> at AATF:
+        <div class="prompt">Using this material, write an onboarding FAQ for a new <span class="ph">[ROLE, e.g. HONOURS STUDENT]</span> joining the lab:
 <span class="ph">[PASTE POLICIES / NOTES]</span>.
 10–12 question-and-answer pairs a new joiner would actually ask, plain language.
-Only use information in the material — mark anything you cannot answer as "Ask your manager".</div>
+Only use information in the material — mark anything you cannot answer as "Ask your supervisor".</div>
 
         <div class="whenuse">When you're stuck and don't even know what to ask</div>
         <div class="prompt">I need to <span class="ph">[TASK]</span> but I'm stuck.
@@ -364,9 +365,9 @@ Ask me 5 questions that would help you help me, then wait for my answers.</div>
 
           <div class="card card-hover">
             <span class="cardlabel">Card D</span>
-            <h3>Translate</h3>
-            <p class="soft">EN ⇄ FR, with the risky terms flagged.</p>
-            <div class="prompt">Translate to <span class="ph">[LANGUAGE]</span> for <span class="ph">[COUNTRY]</span> and flag any judgement calls: <span class="ph">[PASTE]</span></div>
+            <h3>Plain language</h3>
+            <p class="soft">Jargon → lay language, with the risky simplifications flagged.</p>
+            <div class="prompt">Rewrite for a non-specialist and flag any simplification that might lose important nuance: <span class="ph">[PASTE]</span></div>
           </div>
 
           <div class="card card-hover">
@@ -393,14 +394,14 @@ Ask me 5 questions that would help you help me, then wait for my answers.</div>
 <div class="container narrow" style="padding-bottom:60px;">
   <div class="callout callout-warn">
     <div class="callout-title">Before you hit send: the verification habit</div>
-    <p>AI gives you speed. <strong>You provide the judgement.</strong> Every number, name, citation, deadline and legal or regulatory claim is yours to confirm before it reaches a donor, a partner, a regulator or a farmer. Use <strong>Card F</strong> on anything that matters, mark AI drafts as drafts, and never let a confident-sounding sentence replace a fact you can check.</p>
+    <p>AI gives you speed. <strong>You provide the judgement.</strong> Every number, name, citation, deadline and ethics or regulatory claim is yours to confirm before it reaches a supervisor, a journal, a funder, or a collaborator. Use <strong>Card F</strong> on anything that matters, mark AI drafts as drafts, and never let a confident-sounding sentence replace a fact you can check.</p>
     <p style="margin-top:.5rem;">
       <span class="tl tl-green"><span class="dot"></span>Trust after you verify</span>&nbsp;&nbsp;
       <span class="tl tl-amber"><span class="dot"></span>Draft — needs review</span>&nbsp;&nbsp;
       <span class="tl tl-red"><span class="dot"></span>Never send unchecked</span>
     </p>
   </div>
-  <p class="center muted" style="margin-top:2rem;font-size:.85rem;">AATF × FABI (University of Pretoria) · AI Workshop · Nairobi, July 2026 · Keep this reference on your desk.</p>
+  <p class="center muted" style="margin-top:2rem;font-size:.85rem;">FABI, University of Pretoria · [DATE] · Keep this reference on your desk.</p>
 </div>
 
 </body>

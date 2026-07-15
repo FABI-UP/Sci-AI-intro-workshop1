@@ -29,11 +29,11 @@ body.deck-body { overflow: hidden; height: 100vh; background: var(--bg-sunk); }
   font-size: .8rem; color: var(--text-mute); background: transparent; z-index: 5;
 }
 .slide-foot .sf-brand { font-weight: 700; color: var(--text-soft); }
-.progress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--fabi-green), var(--gold)); z-index: 10; transition: width .3s ease; }
+.progress { position: fixed; top: 0; left: 0; height: 4px; background: linear-gradient(90deg, var(--fabi-green), var(--fabi-deep)); z-index: 10; transition: width .3s ease; }
 
 /* Section divider slides */
 .slide.section {
-  background: linear-gradient(125deg, var(--fabi-forest), var(--fabi-green) 60%, var(--aatf-green));
+  background: linear-gradient(125deg, var(--fabi-forest), var(--fabi-green) 60%, var(--fabi-deep));
   color: #fff;
 }
 .slide.section h1, .slide.section h2, .slide.section .slide-kicker { color: #fff; }
@@ -41,12 +41,12 @@ body.deck-body { overflow: hidden; height: 100vh; background: var(--bg-sunk); }
 .slide.section .lead { color: rgba(255,255,255,.9); }
 
 /* Quote slides */
-.slide.quote { background: var(--aatf-navy); color: #fff; text-align: center; }
+.slide.quote { background: var(--fabi-forest); color: #fff; text-align: center; }
 .slide.quote blockquote { font-size: clamp(1.6rem, 4vw, 3rem); font-weight: 700; max-width: 20ch; margin: 0 auto; line-height: 1.25; }
-.slide.quote cite { display: block; margin-top: 1.5rem; font-size: 1.1rem; font-style: normal; color: var(--gold-bright); font-weight: 600; }
+.slide.quote cite { display: block; margin-top: 1.5rem; font-size: 1.1rem; font-style: normal; color: var(--code-accent); font-weight: 600; }
 
 /* Title slide */
-.slide.title { background: linear-gradient(140deg, var(--aatf-navy) 0%, var(--fabi-forest) 70%); color: #fff; }
+.slide.title { background: linear-gradient(140deg, var(--fabi-forest) 0%, var(--fabi-deep) 70%); color: #fff; }
 .slide.title h1 { color: #fff; }
 .slide.title .subtitle { font-size: clamp(1.1rem,2.2vw,1.6rem); color: rgba(255,255,255,.85); }
 

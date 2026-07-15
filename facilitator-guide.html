@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AATF AI Workshop — Facilitator Guide</title>
+<title>Working with AI as a Research Assistant — Facilitator Guide</title>
 <link rel="stylesheet" href="assets/theme.css">
 <style>
   .toc { position:sticky; top:1rem; }
@@ -17,7 +17,7 @@
 
 <header class="masthead">
   <div class="container" style="padding:1.5rem 24px; display:flex; align-items:center; gap:14px;">
-    <div class="brandmark"><span class="logo">AI</span> AATF × FABI · AI Workshop</div>
+    <div class="brandmark"><span class="logo">AI</span> FABI · Working with AI as a Research Assistant</div>
     <span style="margin-left:auto; opacity:.85; font-weight:600;">Facilitator Guide</span>
   </div>
 </header>
@@ -25,7 +25,7 @@
 <main class="container narrow" style="padding:2.5rem 24px 4rem;">
   <p class="no-print"><a href="index.html">← Back to workpack</a></p>
   <h1>Facilitator Guide</h1>
-  <p class="lead-in">How the pieces fit, how to run the day, the live build scripted step-by-step, and how to run the practice hour. Built to complement Prof. Slippers' detailed Day-3 Programme &amp; Session Plan — this guide focuses on the AI demos and the workpack materials.</p>
+  <p class="lead-in">How the pieces fit, how to run the day, the live build scripted step-by-step, and how to run the practice hour. This guide focuses on the AI demos and the workpack materials — it assumes a standalone one-day session.</p>
 
   <div class="callout callout-info">
     <div class="callout-title">The teaching philosophy</div>
@@ -35,10 +35,11 @@
   <h2>Before the day</h2>
   <ol class="steps">
     <li><strong>Test the live build (Build 1) and the practice-hour exercises</strong> the day before, on the venue wifi if possible. Record a screen-capture of Build 1 as a <strong>fallback</strong> in case the network fails.</li>
-    <li><strong>Load the demo assets.</strong> Have the <a href="demo-assets/README.html">demo pack</a> in a folder on the presenting machine, and a Project pre-seeded with the "About AATF" boilerplate.</li>
+    <li><strong>Load the demo assets.</strong> Have the <a href="demo-assets/README.html">demo pack</a> in a folder on the presenting machine, and a Project pre-seeded with the "About the lab" boilerplate.</li>
     <li><strong>Print the prompt cards</strong> (last section of the <a href="exercises/prompt-library.html">Prompt Library</a>) — one set per participant. Pair anyone without a device.</li>
-    <li><strong>Accounts:</strong> demo on Claude Pro. Have one Team/Enterprise example ready to show the data-handling difference. Scaling is a decision for the afternoon, not a prerequisite for today.</li>
-    <li><strong>Verify the privacy settings screen.</strong> Before the day, open Settings → Privacy on the demo Claude Pro account yourself and confirm the current toggle for training/data-sharing and the stated retention period — wording and defaults can change, and you'll walk participants through this live in the practice hour (11:15).</li>
+    <li><strong>Accounts:</strong> demo on Claude Pro. Have one Team/Enterprise example ready to show the data-handling difference. Scaling is a decision for later, not a prerequisite for today.</li>
+    <li><strong>Verify the privacy settings screen.</strong> Before the day, open Settings → Privacy on the demo Claude Pro account yourself and confirm the current toggle for training/data-sharing and the stated retention period — wording and defaults can change. Participants locate this screen at 09:15; you explain what to actually check and why at 13:00.</li>
+    <li><strong>Fill in slide 21.</strong> It ships as a deliberate placeholder — a real, citable "closest to home" example of AI already used in plant/microbial biology, in the spirit of the AlphaFold and AI co-scientist slides either side of it. Don't present it blank, and don't invent one on the spot.</li>
     <li><strong>Open the deck</strong> at <code>slides/index.html</code>, press <span class="kbd">F</span> for full screen. Arrow keys advance; some slides reveal in steps.</li>
   </ol>
 
@@ -48,48 +49,49 @@
     <table>
       <thead><tr><th>Time</th><th>Slides</th><th>Notes</th></tr></thead>
       <tbody>
-        <tr><td>09:00</td><td>1–5</td><td>🎤 Open with the carwash story (slide 2) — it lands the "capable but fallible" idea and gets a laugh. Capture the flipchart question: <em>"one task this week you wish you hadn't done by hand."</em> Use their answers as live demo fodder.</td></tr>
-        <tr><td>09:15</td><td>6–23</td><td>🎤 The conceptual core. Don't rush slides 7–14 (predicts, not looks up · context · jagged intelligence) — everything else builds on them. Slides 16–23 (the science wins) re-energise; the Nuru cassava example (21) is the closest to home. Use slide 22 (the hype cautionary tale) to validate their scepticism.</td></tr>
-        <tr><td>10:00</td><td>24–36</td><td>🖥️ Demo "same request three ways" (26). Then ✋ Guided Try #1 (27): everyone summarises a real document — the confidence moment. Continue straight into 28–34 (agents, tools, the ladder) and <strong>one live build</strong> (35, scripted below); 36 is the human-boundary line.</td></tr>
+        <tr><td>09:00</td><td>1–5</td><td>🎤 Open with the carwash story (slide 2) — it lands the "capable but fallible" idea and gets a laugh. Capture the flipchart question: <em>"one research task this week you wish you hadn't done by hand."</em> Use their answers as live demo fodder.</td></tr>
+        <tr><td>09:15</td><td>6–8</td><td>✋ Setup &amp; access check (scripted below). Keep this brisk and mechanical — login, one test message, locate Settings → Privacy. Don't explain the "why" in depth; that's 13:00. The whole point is catching stragglers now, cheaply.</td></tr>
+        <tr><td>09:30</td><td>9–23</td><td>🎤 The conceptual core. Don't rush slides 10–15 (predicts, not looks up · context · jagged intelligence) — everything else builds on them. Slides 18–23 (the science wins) re-energise. <strong>Slide 21 is the placeholder</strong> you filled in before the day. Use slide 22 (the hype cautionary tale) to validate their scepticism.</td></tr>
+        <tr><td>10:00</td><td>24–36</td><td>🖥️ Demo "same request, three ways" (26) — <strong>one chat thread</strong>, not three separate chats; narrate it that way so the compounding-context lesson lands. Then ✋ Guided Try #1 (27): everyone summarises a real document — the confidence moment. Continue straight into 28–34 (agents, tools, the ladder — Ten Rules tags appear on 29, 31, 34) and <strong>one live build</strong> (35, scripted below); 36 is the human-boundary line.</td></tr>
         <tr><td>11:00</td><td>—</td><td>☕ Tea break.</td></tr>
-        <tr><td>11:15</td><td>Ex. 5–11</td><td>✋ Practice hour (scripted below): a quick settings check, then everyone works Exercises 5–11 hands-on — the demo pack, or a real file from their own desk.</td></tr>
-        <tr><td>12:15</td><td>37–45</td><td>🎤 Governance as <em>enabler</em>. The rigor-transfer table (38) flatters a scientific audience — lean into it. Run the red-team exercise (45) as a 💬 table discussion; reveal answers one at a time.</td></tr>
-        <tr><td>12:55</td><td>46–50</td><td>💬 Each unit names one pilot, owner, and date — capture it live on slide 47's table (or a flipchart). Close on the four durable ideas (49).</td></tr>
+        <tr><td>11:15</td><td>Ex. 5–11</td><td>✋ Practice hour (scripted below): a quick settings recap, then everyone works Exercises 5–11 hands-on — the demo pack, or a real file from their own desk.</td></tr>
+        <tr><td>12:15</td><td>—</td><td>🍽️ Lunch break.</td></tr>
+        <tr><td>13:00</td><td>37–46</td><td>🎤 Rigor &amp; security as <em>enablers</em>. Slide 38 (the Ten Simple Rules) is the new reframe — it flatters a scientific audience even more directly than a generic "governance" framing would, because these are their own field's rules. Slide 42 quotes a real project's anti-fabrication policy verbatim; land it as "this is already how careful labs work." Run the red-team exercise (46) as a 💬 table discussion; reveal answers one at a time.</td></tr>
+        <tr><td>13:40</td><td>47–50</td><td>💬 No pilot commitments this time — just the personal path (48) and the four durable ideas (49). Keep this light; it's 20 minutes, not a planning session.</td></tr>
       </tbody>
     </table>
   </div>
 
   <h2>The live build (10:00), then the practice hour (11:15)</h2>
-  <p>Only Build 1 is now a full facilitator walkthrough. Builds 2–4 are no longer demoed at length — participants do the equivalent themselves in the practice hour, so narrate them as a quick preview here ("here's what you'll try next"), not a full live run.</p>
+  <p>Only Build 1 is a full facilitator walkthrough. Builds 2–4 are not demoed at length — participants do the equivalent themselves in the practice hour, so narrate them as a quick preview here ("here's what you'll try next"), not a full live run.</p>
 
   <div class="build">
     <span class="badge badge-fdn">Build 1 · Project · ~12 min · live now</span>
-    <h3>Donor Proposal Assistant</h3>
-    <p>Create a <strong>Project</strong> in claude.ai. Add <code>about-aatf-boilerplate.md</code> and <code>donor-brief.md</code> as project knowledge. Then prompt: <em>"Draft a 1-page concept note on the TELA maize scale-up for Donor Foundation X, using our About text and their funding priorities."</em> Show how the Project <strong>remembers context</strong> so you don't re-paste it every time. If the wifi fails, cut to the fallback recording and narrate it as if live.</p>
+    <h3>Literature Assistant</h3>
+    <p>Create a <strong>Project</strong> in claude.ai. Add <code>about-the-lab-boilerplate.md</code> and <code>reading-list-summary.md</code> as project knowledge. Then prompt: <em>"Draft a synthesis paragraph on [the demo pack's study topic], using our About text and the reading-list summary."</em> Show how the Project <strong>remembers context</strong> so you don't re-paste it every time. If the wifi fails, cut to the fallback recording and narrate it as if live.</p>
   </div>
 
   <div class="build">
     <span class="badge badge-int">Builds 2–4 · preview only · ~3 min</span>
-    <h3>Cowork, data → insight, and the funding-scan agent</h3>
-    <p>Name them in one line each — Cowork across a folder ("now give me the French version"), computing in a spreadsheet with visible working, and a scheduled agent that finds calls, filters, and drafts (never sends) an email. Land <strong>the agent drafts; a human decides</strong> here, since Build 4 is the one participants can't fully self-serve. Then move straight to the human-boundary slide (36) and into tea.</p>
+    <h3>Cowork, data → insight, and the literature-scan agent</h3>
+    <p>Name them in one line each — Cowork across a folder ("now give me the plain-language version"), computing a statistic in a spreadsheet with visible working, and a scheduled agent that finds new papers, filters to a subfield, and drafts (never sends) a summary email. Land <strong>the agent drafts; a human decides</strong> here, since Build 4 is the one participants can't fully self-serve. Then move straight to the human-boundary slide (36) and into tea.</p>
   </div>
 
   <h3>Running the practice hour (11:15)</h3>
   <ol class="steps">
-    <li><strong>Settings check, ~5 min, everyone together.</strong> Walk the room through Settings → Privacy on their own accounts: confirm training/data-sharing is off and note the retention period. Use the exact current wording you verified the day before (see "Before the day" above) — don't rely on last year's screenshot.</li>
-    <li><strong>Track choice.</strong> Point out the Track A/B callout at the top of Part B in the hands-on handout. Track A (demo pack) needs no further setup. Track B (a real file) needs a 10-second traffic-light check — if you see a participant about to paste something that reads as amber-leaning-red or red, redirect them to a demo asset instead; don't relitigate the whole traffic light mid-exercise, just point them to slide 40, coming up next.</li>
+    <li><strong>Settings recap, ~2 min, everyone together.</strong> Confirm everyone actually flipped the training/data-sharing toggle they located at 09:15 — not just found the screen. If anyone skipped it, do it now, before they touch Track B.</li>
+    <li><strong>Track choice.</strong> Point out the Track A/B callout at the top of Part B in the hands-on handout. Track A (demo pack) needs no further setup. Track B (a real file) needs a 10-second traffic-light check — if you see a participant about to paste something that reads as amber-leaning-red or red, redirect them to a demo asset instead; don't relitigate the whole traffic light mid-exercise, just point them to slide 41, coming up at 13:00.</li>
     <li><strong>Circulate.</strong> This hour has no script — it's Exercises 5–11 in the handout, self-paced. Prioritise anyone stuck over anyone ahead.</li>
   </ol>
 
-  <h2>Feeding the afternoon (14:00)</h2>
-  <p>Carry three things into the joint 3-day review:</p>
+  <h2>After the workshop</h2>
   <ul>
-    <li><strong>The pilot list</strong> — each unit's committed use case, owner, and date (slide 47).</li>
-    <li><strong>Governance decisions</strong> — adopt a light AI policy? default to Team accounts beyond green-light work? name an owner (ICT + AI working group)?</li>
-    <li><strong>Capability needs</strong> — who wants to go further, and what a follow-up clinic (4–6 weeks out) should cover.</li>
+    <li><strong>Share the workpack link</strong> — everyone keeps slides, exercises, and the prompt library to revisit.</li>
+    <li><strong>Note who wants to go further</strong> — Claude Code, agents, automation — as candidates for a follow-up clinic (4–6 weeks out).</li>
+    <li><strong>If slide 21 changed on the day</strong> (a participant offered a better example than the one you prepared), update it in this repo before the next run.</li>
   </ul>
 
-  <p class="muted" style="margin-top:2rem">Tool features and prices are current as of July 2026. The durable content — the four-part prompt, the escalation ladder, the traffic light, and verify-everything — is platform-neutral and long-lived.</p>
+  <p class="muted" style="margin-top:2rem">Tool features and prices are current as of [DATE]. The durable content — the four-part prompt, the escalation ladder, the Ten Simple Rules, and verify-everything — is platform-neutral and long-lived.</p>
 </main>
 
 </body>

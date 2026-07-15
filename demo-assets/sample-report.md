@@ -1,60 +1,56 @@
-# TELA Maize Scale-Up Programme — Quarterly Progress Report
+# Sorghum Leaf Blight Surveillance &amp; Trial Programme — Quarterly Progress Report
 
-**FICTIONAL DEMO DATA — not real AATF information.** All numbers, names, donors and quotes below are invented for a training workshop.
+**FICTIONAL DEMO DATA.** All numbers, names, sites and quotes below are invented for a training workshop. "Sorghum leaf blight" here is a fictional/composite disease system, not a specific real pathogen.
 
-**Reporting period:** Q2 2026 (April–June) | **Prepared by:** Programme Coordination Unit | **Version:** Draft for review
+**Reporting period:** Q2 2026 (April–June) | **Prepared by:** Cereal Health Research Group | **Version:** Draft for review
 
 ---
 
 ## 1. Background
 
-The TELA Maize Scale-Up Programme aims to expand smallholder access to drought-tolerant and insect-protected maize varieties across four target countries. Building on earlier variety registration and stewardship work, this phase (2025–2028) focuses on seed multiplication, extension, and demand creation so that farmers can reliably purchase certified seed through local agro-dealer networks.
+This programme surveys sorghum leaf blight severity and trials a biocontrol seed treatment across three sites with contrasting rainfall regimes (Site A: high rainfall, Site B: moderate, Site C: low/erratic). The current phase (2025–2027) moves from establishing baseline severity patterns toward testing whether the biocontrol treatment can meaningfully reduce severity under farmer-managed conditions, not just in controlled trials.
 
-The programme is coordinated from the regional hub and delivered through national partners, seed companies, and farmer cooperatives. It is funded under a fictional grant from Donor Foundation X, with co-financing from a national agricultural investment window. The overarching goal is to help climate-vulnerable maize farmers stabilise yields in the face of erratic rainfall and stem-borer pressure, contributing to household food security and income.
+The programme is coordinated from the Cereal Health Research Group and delivered with participating farmer cooperatives at each site. It draws on the reading-list synthesis (see `reading-list-summary.md`) that flagged both a climate-timing effect on severity and an under-powered prior biocontrol trial — this quarter's design was built specifically to address the second gap with a properly replicated trial.
 
-This quarter marked the transition from pre-commercial demonstration to early commercial rollout in two of the four countries.
+This quarter marked the first full season of the replicated biocontrol trial across all three sites.
 
 ## 2. Activities This Quarter
 
-- **Seed multiplication:** Contracted 46 out-grower seed producers across three multiplication clusters; planted 512 hectares of certified seed production, up from 310 hectares in the previous cycle.
-- **Agro-dealer onboarding:** Trained and registered 118 rural agro-dealers on TELA seed handling, stewardship obligations, and refuge-planting requirements. 71 met the stocking criteria and received starter consignments.
-- **Extension and demonstrations:** Established 240 mother-and-baby demonstration plots. Field days reached an estimated 9,400 farmers, of whom roughly 41% were women.
-- **Stewardship and compliance:** Conducted 62 field inspections; issued 5 corrective-action notices, all resolved within the quarter.
-- **Digital pilot:** Launched an SMS advisory pilot with 3,200 enrolled farmers sharing planting-window and refuge reminders.
+- **Trial establishment:** Planted the replicated trial at all three sites — 2 treatments (control, biocontrol seed treatment) × 5 replicate plots per site, 30 plots total.
+- **Disease scoring:** Conducted severity scoring at three growth stages per site using a standardised 1–9 scale, following the scoring-validation concerns raised in Study D of the reading list.
+- **Yield assessment:** Hand-harvested and weighed grain yield per plot at physiological maturity.
+- **Farmer engagement:** Ran two field days (Site A and Site C) with a combined 340 attendees; collected informal feedback on the biocontrol treatment's ease of use.
+- **Data management:** Digitised all plot-level scoring and yield data into a shared spreadsheet (`sample-results.csv`) with site, treatment, and replicate identifiers.
 
 ## 3. Results
 
-Against the annual targets, the programme is broadly on track, with strong momentum on reach and a modest lag on certified-seed volume.
+Across all three sites, the biocontrol treatment reduced mean disease severity relative to the control, though the size of the effect varied by site — consistent with Study B's finding that climate/timing, not just treatment, shapes severity outcomes.
 
-| Indicator | Annual target | Achieved to date | % of target |
+| Site | Control mean severity (%) | Treated mean severity (%) | Relative reduction |
 |---|---|---|---|
-| Hectares under certified seed production | 900 ha | 512 ha | 57% |
-| Smallholder farmers reached (cumulative) | 60,000 | 38,700 | 65% |
-| Certified seed produced | 1,150 MT | 640 MT | 56% |
-| Agro-dealers actively stocking TELA seed | 150 | 71 | 47% |
-| Average on-farm yield, demo plots | 4.2 t/ha | 3.9 t/ha | 93% |
+| Site A (high rainfall) | 52.4 | 34.1 | 35% |
+| Site B (moderate) | 38.7 | 22.3 | 42% |
+| Site C (low/erratic) | 29.6 | 21.8 | 26% |
 
-Demonstration-plot yields averaged 3.9 t/ha against a local check of 2.4 t/ha — a 63% uplift under this season's below-average rainfall. Farmer-reported grain losses to stem borer fell to an estimated 8%, compared with a baseline of 22%. A rapid uptake survey suggests 78% of demo-plot farmers intend to purchase certified seed next season, though intention-to-purchase historically overstates actual conversion.
+Yield followed the same direction: treated plots out-yielded control plots at all three sites, with the largest absolute yield gain at Site A (highest disease pressure) and the smallest at Site C (lowest disease pressure) — broadly consistent with a disease-suppression mechanism rather than a general growth-promotion effect, though this trial cannot fully rule out the latter.
 
-Early sales data from the two commercial-launch countries recorded 214 MT of certified seed sold through agro-dealers, generating a fictional gross channel value of roughly USD 385,000.
+Full plot-level figures are in `sample-results.csv` for anyone who wants to check the summary statistics above against the raw data.
 
 ## 4. Challenges
 
-- **Seed volume shortfall:** A dry spell during the multiplication window reduced expected yields on 90 hectares of production plots, contributing to the lag against the certified-seed target. The team is negotiating supplementary irrigation access for the next cycle.
-- **Agro-dealer working capital:** Many rural dealers lack the cash flow to hold seed inventory ahead of the planting rush. Only 47% of the dealer target is actively stocking. A pilot consignment/credit arrangement is under discussion with two seed companies.
-- **Refuge compliance awareness:** Spot checks found that about one in five farmers did not fully understand refuge-planting requirements, creating a stewardship risk. Extension messaging is being revised.
-- **Data quality:** Demo-plot yield data arrived late from one cluster, and two partners used inconsistent reporting templates, slowing consolidation.
-- **Currency and input costs:** Rising fertiliser prices in one country are dampening farmer willingness to invest in the full recommended input package.
+- **Replicate loss:** One control replicate at Site B was lost to livestock incursion and excluded from analysis, leaving an unbalanced design at that site (5 treated vs. 4 control replicates).
+- **Scoring consistency:** Two different field staff scored severity at Site C in different weeks; a inter-rater check on a subset of shared plots is planned before the data is used in any publication.
+- **Farmer-reported ease of use:** Informal feedback suggested the biocontrol treatment's application step added meaningful time at planting — this needs formal capture next season, not just anecdote, before drawing conclusions about practical adoption.
+- **Attribution uncertainty:** As noted above, this trial's design cannot cleanly separate a disease-suppression effect from a general growth-promotion effect of the seed treatment.
 
 ## 5. Next Steps
 
-1. Secure supplementary irrigation for at least 120 hectares of multiplication plots to recover the seed-volume gap before the next planting window.
-2. Finalise a consignment-and-credit model with participating seed companies to lift active agro-dealer stocking above 65% of target.
-3. Roll out revised, visual refuge-compliance materials in local languages and retrain field officers.
-4. Harmonise partner reporting templates and hold a data-quality clinic ahead of Q3 consolidation.
-5. Commission an independent mid-term yield verification in the two commercial-launch countries.
-6. Prepare a short donor update for Donor Foundation X highlighting the yield uplift and the seed-volume recovery plan.
+1. Run the inter-rater scoring check at Site C and document the result before the data is used in any manuscript.
+2. Design a follow-up trial arm that can distinguish disease suppression from general growth promotion (e.g. a non-inoculated growth-promotion-only comparison).
+3. Formally capture farmer time-and-labour data on the biocontrol treatment next season.
+4. Re-balance the Site B design or flag the imbalance explicitly in any statistical analysis.
+5. Update the reading-list synthesis with this season's results once the above checks are complete — not before.
 
 ---
 
-*Prepared by Dr. A. Example, Programme Coordinator. For internal review only. Contact: programme@example.org. This is fictional workshop material.*
+*Prepared by Dr. A. Example, Programme Coordinator. For internal review only. This is fictional workshop material.*
