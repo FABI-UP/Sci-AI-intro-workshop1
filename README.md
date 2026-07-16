@@ -6,9 +6,11 @@ FABI, University of Pretoria · Date TBC · Presented by Prof. Bernard Slippers.
 
 ## 🌐 Live site
 
-This repo is private, so GitHub Pages isn't enabled by default (private-repo Pages needs a paid GitHub plan). Until then:
+The workpack is hosted at:
 
-Everything is self-contained static HTML and works fully offline — just open `index.html` in a browser, or clone the repo and do the same locally.
+**https://fabi-up.github.io/Sci-AI-intro-workshop1/**
+
+Everything is self-contained static HTML — it also works fully offline. Just open `index.html` in a browser.
 
 ## What's inside
 
